@@ -20,14 +20,11 @@ app.use(cors());
 
 // Rutas
 
-app.get('/', (req, res) => {
-   res.send('197686889');
-})
 
 // FaceBook
 
 app.get('/webhook', (req, res) => {
-   if (req.query['hub.verify.token'] === 'blondiebytes') {
+   if (req.query['hub.verify.token'] === 'EAAcENVVhy9EBAHXetVmwiOXZCHSQY3Ct5oMcvyO3ZAdaDjmZC7G1GzZAvwZANWHeIwLubFUBIdyiFWiqbPHfJxrZAxZAOuIQBKZCQUoMeH0PwO6NcFVCyhoS4hCZCg1SWln4r3radCv9ygywmyssRE6nZCqida7YSq5neyhNRxwwm5AnOCwGOoONZBu') {
       res.send(req.query(['hub.challenge']))
    } else {
       res.send('token invalido');
