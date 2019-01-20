@@ -24,7 +24,7 @@ app.use(cors());
 // FaceBook
 
 app.get('/webhook', (req, res) => {
-   if (req.query['hub.verify.token'] === 'EAAcENVVhy9EBAHXetVmwiOXZCHSQY3Ct5oMcvyO3ZAdaDjmZC7G1GzZAvwZANWHeIwLubFUBIdyiFWiqbPHfJxrZAxZAOuIQBKZCQUoMeH0PwO6NcFVCyhoS4hCZCg1SWln4r3radCv9ygywmyssRE6nZCqida7YSq5neyhNRxwwm5AnOCwGOoONZBu') {
+   if (req.query['hub.verify.token'] === 'blondiebytes') {
       res.send(req.query(['hub.challenge']))
    } else {
       res.send('token invalido');
