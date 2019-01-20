@@ -24,6 +24,7 @@ app.use(cors());
 // FaceBook
 
 app.get('/webhook', (req, res) => {
+   console.log(req.query['hub.verify.token']);
    if (req.query['hub.verify.token'] === 'cristiantorresmitoken') {
       res.send(req.query(['hub.challenge']))
    } else {
