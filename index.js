@@ -1,15 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const request = require('request');
 
 const app = express();
 app.set('port', process.env.PORT || 5000);
+
+
 
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({
    extended: false
 }));
 app.use(bodyParser.json());
+
+// Cors MiddleWare wow
+app.use(cors());
 
 
 // Rutas
