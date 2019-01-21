@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+
 const request = require('request');
+require('dotenv').config({
+   path: 'variables.env'
+});
 
 const app = express();
 app.set('port', process.env.PORT || 5000);
@@ -19,6 +23,10 @@ app.use(bodyParser.json());
 // Rutas
 app.get('/', (req, res) => {
    res.send('hola bienvenido al servidor');
+   console.log(`mostrando el puerto ${process.env.PORT}`);
+   console.log(`mostrando token de facebook ${process.env.FACEBOOK_ACCESS_TOKEN}`);
+   console.log(`mostrando el token de google ${process.env.DIALOGFLOW_PRIVATE_KEY}`);
+   console.log(`mostrando el email ${process.env.DIALOGFLOW_CLIENT_EMAIL}`);
 })
 
 
