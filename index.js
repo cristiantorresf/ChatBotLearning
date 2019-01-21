@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 // FaceBook
 
 app.get('/webhook', (req, res) => {
-   let VERIFY_TOKEN = 'pusher-bot';
+   let VERIFY_TOKEN = 'cristiantorresmitoken';
 
    let mode = req.query['hub.mode'];
    let token = req.query['hub.verify_token'];
