@@ -25,15 +25,22 @@ app.get('/', (req, res) => {
 // FaceBook
 
 app.get('/webhook', (req, res) => {
+   let VERIFY_TOKEN = 'pusher-bot';
 
-   if (req.query['hub.verify.token'] === 'cristiantorresmitoken') {
-      console.log(req.query['hub.verify.token']);
-      console.log(req.query['hub.challenge']);
-      res.send(req.query['hub.challenge'])
+   let mode = req.query['hub.mode'];
+   let token = req.query['hub.verify_token'];
+   let challenge = req.query['hub.challenge'];
+
+   if (mode && token === VERIFY_TOKEN) {
+      res.status(200).send(challenge);
    } else {
-      res.send('token invalido');
+      res.sendStatus(403);
    }
-})
+});
+
+
+
+
 
 
 app.listen(app.get('port'), () => {
