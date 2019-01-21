@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+
 const request = require('request');
 
 const app = express();
@@ -14,19 +14,21 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-// Cors MiddleWare wow
-app.use(cors());
 
 
 // Rutas
+app.get('/', (req, res) => {
+   res.send('hola bienvenido al servidor');
+})
 
 
 // FaceBook
 
 app.get('/webhook', (req, res) => {
-   console.log(req.query('hub.verify.token'));
-   console.log(req.query(req.query('hub.challenge')));
+
    if (req.query['hub.verify.token'] === 'cristiantorresmitoken') {
+      console.log(req.query['hub.verify.token']);
+      console.log(req.query['hub.challenge']);
       res.send(req.query['hub.challenge'])
    } else {
       res.send('token invalido');
