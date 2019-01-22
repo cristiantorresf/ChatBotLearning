@@ -22,7 +22,7 @@ app.use(bodyParser.json())
 // ROUTES
 
 app.get('/', function (req, res) {
-   res.send("Hi I am a chatbot")
+   res.send("Hola soy un chatbot viviendo soy una creatura informatica");
 })
 
 let token = process.env.PAGE_ACCESS_TOKEN;
@@ -37,8 +37,17 @@ app.get('/webhook/', function (req, res) {
 })
 
 app.post('/webhook/', function (req, res) {
-   let messaging_events = req.body.entry[0].messaging
+   let messaging_events = req.body.entry[0].messaging;
+   console.log('que me traes =' + JSON.stringify(req.body));
+   console.log('---------------------------------------------------------------------');
+   console.log('---------------------------------------------------------------------');
+   console.log('---------------------------------------------------------------------');
+   console.log('---------------------------------------------------------------------');
+   console.log('---------------------------------------------------------------------');
+   console.log('---------------------------------------------------------------------');
+   console.log('messaging_events =' + messaging_events);
    for (let i = 0; i < messaging_events.length; i++) {
+
       let event = messaging_events[i]
       let sender = event.sender.id
       if (event.message && event.message.text) {
