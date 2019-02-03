@@ -57,7 +57,7 @@ app.post('/webhook', (req, res) => {
        console.log(webhook_event);
        let sender_psid = webhook_event.sender.id;
        console.log('""""""""""""""""""""""""""""""""""""');
-       console.log(`sender_psid = ${sender_psid}`);
+       console.log(`sender_psid => ${sender_psid}`);
 
      });
  
