@@ -5,9 +5,11 @@ const
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json());
+// token variable de entorno
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-  // Adds support for GET requests to our webhook
-   app.get('/webhook', (req, res) => {
+// Adds support for GET requests to our webhook verificaion
+app.get('/webhook', (req, res) => {
 
    // Your verify token. Should be a random string.
    let VERIFY_TOKEN = "1014238588"
@@ -34,9 +36,9 @@ const
      }
    }
  });
+
   
-  
-  // Creates the endpoint for our webhook 
+ // Creates the endpoint for our webhook recive mensajes
 app.post('/webhook', (req, res) => {  
  
    let body = req.body;
@@ -49,6 +51,7 @@ app.post('/webhook', (req, res) => {
  
        // Gets the message. entry.messaging is an array, but 
        // will only ever contain one message, so we get index 0
+       // req.body.entry
        let webhook_event = entry.messaging[0];
        console.log(webhook_event);
      });
@@ -61,16 +64,13 @@ app.post('/webhook', (req, res) => {
    }
  
  });
-  
-  
-  
-  
-  
-  
-  
-  
-  // creates express http server
 
 
+ 
+
+
+
+
+// creates express http server
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
