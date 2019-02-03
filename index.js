@@ -38,9 +38,16 @@ app.get('/webhook', (req, res) => {
    }
  });
 
-  
+ app.post('/webhook', function (req, res) {
+   var events = req.body.entry[0].messaging;
+   for (i = 0; i < events.length; i++) {
+       var event = events[i];
+       console.log(event.message.text);
+   }
+   res.sendStatus(200);
+});
  // Creates the endpoint for our webhook 
-app.post('/webhook', (req, res) => {  
+/* app.post('/webhook', (req, res) => {  
  
    let body = req.body;
  
@@ -59,7 +66,7 @@ app.post('/webhook', (req, res) => {
        console.log('""""""""""""""""""""""""""""""""""""');
        console.log(`sender_psid = ${sender_psid}`);
 
-     });
+     }); 
  
      // Returns a '200 OK' response to all requests
      res.status(200).send('EVENT_RECEIVED');
@@ -68,8 +75,8 @@ app.post('/webhook', (req, res) => {
      res.sendStatus(404);
    }
  
- });
- 
+ }); */
+
  
 
 
