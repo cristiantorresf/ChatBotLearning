@@ -5,10 +5,11 @@ const
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json());
-// token variable de entorno
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+  
+  const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-// Adds support for GET requests to our webhook verificaion
+app.set('port',process.env.PORT || 1337);
+// Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
 
    // Your verify token. Should be a random string.
@@ -38,7 +39,7 @@ app.get('/webhook', (req, res) => {
  });
 
   
- // Creates the endpoint for our webhook recive mensajes
+ // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
  
    let body = req.body;
@@ -54,6 +55,10 @@ app.post('/webhook', (req, res) => {
        // req.body.entry
        let webhook_event = entry.messaging[0];
        console.log(webhook_event);
+       let sender_psid = webhook_event.sender.id;
+       console.log('""""""""""""""""""""""""""""""""""""');
+       console.log(`sender_psid = ${sender_psid}`);
+
      });
  
      // Returns a '200 OK' response to all requests
@@ -64,8 +69,7 @@ app.post('/webhook', (req, res) => {
    }
  
  });
-
-
+ 
  
 
 
@@ -73,4 +77,4 @@ app.post('/webhook', (req, res) => {
 
 // creates express http server
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
+app.listen(app.get('port'), () => console.log(`webhook is listening on port ${app.get('port')}`));
