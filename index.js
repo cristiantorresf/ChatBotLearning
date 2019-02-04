@@ -6,7 +6,9 @@ const
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json());
   
-  const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const request = require('request');
+
 
 app.set('port',process.env.PORT || 1337);
 // Adds support for GET requests to our webhook
@@ -42,12 +44,7 @@ app.get('/webhook', (req, res) => {
  // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
 
-   console.log(`imprima todo haber cual es la maricada json = ${JSON.stringify(req.body)}`);
-   console.log(`Imprima tambien la url haber que carajos es lo que esta enviando ${req.query}`);
-
-   if (!req.body || !req.query){
-      console.log(`no llego ni mierda`);
-   }
+  
  
    let body = req.body;
  
@@ -66,6 +63,15 @@ app.post('/webhook', (req, res) => {
        console.log('""""""""""""""""""""""""""""""""""""');
        console.log(`sender_psid => ${sender_psid}`);
 
+       if (webhook_event.message){
+          handleMessage(sender_psid,webhook_event.message);
+          console.log('funcion')
+       } else if (webhook_event.postback){
+          //handlePostback(sender_psid,webhook_event.postback);
+          console.log('postback function')
+       }
+      
+
      });
  
      // Returns a '200 OK' response to all requests
@@ -76,6 +82,43 @@ app.post('/webhook', (req, res) => {
    }
  
  });
+
+ function callSendAPI (PSID,response){
+    // construye el cuerpo del mensaje en JSON
+    let request_body = {
+       "recipient" : {
+          "id" :PSID
+       },
+       "message": response
+    } 
+    // Send the HTTP request to the Messenger platform 
+    
+    request({
+      "uri": "https://graph.facebook.com/v2.6/me/messages",
+      "qs": { "access_token": PAGE_ACCESS_TOKEN },
+      "method": "POST",
+      "json": request_body
+    },(err,res,body)=>{
+      if (!err){console.log('Mensaje Enviado');}
+      else {console.log('hay un error '+err);}
+    });
+
+ }
+
+ function handleMessage(PSID,Message){
+    let response;
+    // mira si el mensaje contiene texto
+    if (Message.text){
+       // creando un payload 
+       response = {
+          "text" : `Enviaste el mensaje ${Message.text}. Ahora trata de enviarme una imagen`
+       }
+    }
+
+    // Envie el mensaje respuesta
+    callSendAPI(PSID,response);
+ }
+ function handlePostback(PSID,Postback){}
  
  
 

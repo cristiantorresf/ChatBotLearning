@@ -2,6 +2,7 @@ module.exports = (req, res) => {
   const hubChallenge = req.query['hub.challenge'];
   const hubMode = req.query['hub.mode'];
   console.log(`hub mode = ${hubMode}`);
+  console.log('si todo esta bien me envia hubChallenge');
   console.log(`hubChallenge = ${hubChallenge}`);
   console.log(`verifyTokenMatches = ${req.query['hub.verify_token']}`);
   const verifyTokenMatches = (req.query['hub.verify_token'] === 'mitokenpersonalizado');
