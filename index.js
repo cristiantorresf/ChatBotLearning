@@ -74,7 +74,7 @@ app.post('/webhook', (req, res) => {
           handleMessage(sender_psid,webhook_event.message);
           console.log('funcion')
        } else if (webhook_event.postback){
-          //handlePostback(sender_psid,webhook_event.postback);
+          handlePostback(sender_psid,webhook_event.postback);
           console.log('postback function')
        }
       
@@ -152,7 +152,20 @@ app.post('/webhook', (req, res) => {
     // Envie el mensaje respuesta
     callSendAPI(PSID,response);
  }
- function handlePostback(PSID,Postback){}
+ function handlePostback(PSID,Postback){
+    let response;
+    // Get the payload for the postback
+    let payload = Postback.payload;
+   // Set the response based on the postback payload
+   if (payload === "yes"){
+      response = { "text": "Gracias!" }
+
+   } else if (payload === "no"){
+      response = { "text": "Oops, Intenta enviar otra imagen." }
+   }
+   // mande al API
+   callSendAPI(PSID,response);
+ }
  
  
 
