@@ -122,6 +122,31 @@ app.post('/webhook', (req, res) => {
        }
     } else if (Message.attachments){
        let attachment_url = Message.attachments[0].payload.url;
+       response = {
+         "attachment": {
+           "type": "template",
+           "payload": {
+             "template_type": "generic",
+             "elements": [{
+               "title": "Bonita imagen!",
+               "subtitle": "Presiona un boton para responder.",
+               "image_url": attachment_url,
+               "buttons": [
+                 {
+                   "type": "postback",
+                   "title": "Yes!",
+                   "payload": "yes",
+                 },
+                 {
+                   "type": "postback",
+                   "title": "No!",
+                   "payload": "no",
+                 }
+               ],
+             }]
+           }
+         }
+       }
     }
 
     // Envie el mensaje respuesta
