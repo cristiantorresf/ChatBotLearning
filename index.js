@@ -41,6 +41,9 @@ app.get('/webhook', (req, res) => {
   
  // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
+
+   console.log(`imprima todo haber cual es la maricada json = ${JSON.stringify(req.body)}`);
+   console.log(`Imprima tambien la url haber que carajos es lo que esta enviando ${req.query}`);
  
    let body = req.body;
  
