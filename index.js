@@ -50,7 +50,7 @@ app.post('/webhook', (req, res) => {
    console.log(`###################################################`);
    console.log(`###################################################`);
    console.log(`###################################################`);
-   console.log(`Imprima todo lo que reciba  ${req.body}`);
+   console.log(`Imprima todo lo que reciba  ${JSON.stringify(req.body)}`);
    console.log(`###################################################`);
    console.log(`###################################################`);
    console.log(`###################################################`);
