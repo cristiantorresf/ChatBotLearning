@@ -44,6 +44,10 @@ app.post('/webhook', (req, res) => {
 
    console.log(`imprima todo haber cual es la maricada json = ${JSON.stringify(req.body)}`);
    console.log(`Imprima tambien la url haber que carajos es lo que esta enviando ${req.query}`);
+
+   if (!req.body || !req.query){
+      console.log(`no llego ni mierda`);
+   }
  
    let body = req.body;
  
