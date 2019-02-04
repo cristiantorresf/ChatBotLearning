@@ -47,6 +47,13 @@ app.post('/webhook', (req, res) => {
   
  
    let body = req.body;
+   console.log(`###################################################`);
+   console.log(`###################################################`);
+   console.log(`###################################################`);
+   console.log(`Imprima todo lo que reciba  ${req.body}`);
+   console.log(`###################################################`);
+   console.log(`###################################################`);
+   console.log(`###################################################`);
  
    // Checks this is an event from a page subscription
    if (body.object === 'page') {
@@ -113,6 +120,8 @@ app.post('/webhook', (req, res) => {
        response = {
           "text" : `Enviaste el mensaje ${Message.text}. Ahora trata de enviarme una imagen`
        }
+    } else if (Message.attachments){
+       let attachment_url = Message.attachments[0].payload.url;
     }
 
     // Envie el mensaje respuesta
