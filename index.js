@@ -163,7 +163,7 @@ app.post('/webhook', (req, res) => {
       }
   
       if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
-        response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
+        response = {"text": `Me alegra que te encuentres bien, y aun te vas a sentir mucho mejor cuando tengas tu pagina personalizada profesional que te impulse tus metas! `}
       }
   
       if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("ahi vamos")){
