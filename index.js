@@ -146,6 +146,21 @@ app.post('/webhook', (req, res) => {
       if (mensajeMinuscula.includes("hola") || mensajeMinuscula.includes("Hola")){
         response = {"text": `Saludo, como estas? :)`}
       }
+
+      if (mensajeMinuscula.includes("buenos dias") || mensajeMinuscula.includes("buenos días ")|| mensajeMinuscula.includes("buen día ")){
+        response = {"text": `Muy buenos días espero que haya tenido un buen desayuno, Como estas? :)`}
+      }
+
+      if (mensajeMinuscula.includes("buenas tardes") || mensajeMinuscula.includes("buena tarde")){
+        response = {"text": `Muy buenos tardes espero que haya tenido un buen almuerzo, Como estas? :)`}
+      }
+
+      if (mensajeMinuscula.includes("buenas noches") || mensajeMinuscula.includes("buena noche")){
+        response = {"text": `Muy buenos noches que frio que esta haciendo cierto, Como estas? :)`}
+      }
+      if (mensajeMinuscula.includes("ja") || mensajeMinuscula.includes("jaja") || mensajeMinuscula.includes("jajaja")){
+        response = {"text": `😄 jeje`}
+      }
   
       if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
         response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
