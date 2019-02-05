@@ -169,6 +169,10 @@ app.post('/webhook', (req, res) => {
       if (mensajeMinuscula.includes("ja") || mensajeMinuscula.includes("jaja") || mensajeMinuscula.includes("jajaja")){
         response = {"text": `😄 jeje`}
       }
+
+      if (mensajeMinuscula === "bien y tu"||mensajeMinuscula === "que me cuentas"||mensajeMinuscula === "que has hecho"){
+        response = {"text": `😄 Yo de maravilla, contento por que Cristian me dio vida, soy un bot happy, sabes que? dame tu numero y obten el 70% :O para tu primera pagina que dices?`}
+      }
       function ok (){
         if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("que bien") || mensajeMinuscula.includes("que bueno")){
         
