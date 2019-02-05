@@ -118,10 +118,11 @@ app.post('/webhook', (req, res) => {
 
  function handleMessage(PSID,Message){
     let response;
-    let mensajeMinuscula= Message.text.toLowerCase();   
+      
     
     // mira si el mensaje contiene texto
     if (Message.text){
+      let mensajeMinuscula= Message.text.toLowerCase(); 
        // creando un payload 
        if (Message.text === "Hola"){
         response = {"text": `Buenas como estas :)`}
@@ -146,17 +147,37 @@ app.post('/webhook', (req, res) => {
         response = {"text": `Saludo, como estas? :)`}
       }
   
-      if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("Mal")){
+      if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
         response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
       }
   
-      if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("Mal")){
-        response = {"text": `me alegro que estes bien, y mucho mejor cuando hagas tu pagina con nosotros`}
+      if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("ahi vamos")){
+        response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
       }
   
       if (mensajeMinuscula.includes("pagina") || mensajeMinuscula.includes("web")){
-        response = {"text": `Bien perfecto, Desarrollamos la pagina web de tus sueños parecera una aplicacion de escritorio`}
+        response = {"text": `Bien perfecto, Desarrollamos la pagina web personal o comercial, Cuentame mas al respecto? mi numero es 3022735255`}
       }
+
+      if (mensajeMinuscula.includes("mierda") || mensajeMinuscula.includes("pendejo") || mensajeMinuscula.includes("estupido") || mensajeMinuscula.includes("marica")|| mensajeMinuscula.includes("papanatas")|| mensajeMinuscula.includes("torombolo")){
+        response = {"text": `entiendo que tantas cosas de la vida, cause tu irrespeto, pero trata de no ser grosero los bots tambien tenemos sentimientos`}
+      }
+
+      if (mensajeMinuscula.includes("precio") || mensajeMinuscula.includes("cuanto vale")){
+        response = {"text": `No te preocupes por el precio, la pagina que desarrollamos le da tanto valor agregado a tu empresa o persona que lo veras como una excelente inversion, Que tal te parece la idea?`}
+        if (mensajeMinuscula.includes("mierda") || mensajeMinuscula.includes("pendejo") || mensajeMinuscula.includes("estupido") || mensajeMinuscula.includes("marica")|| mensajeMinuscula.includes("papanatas")|| mensajeMinuscula.includes("torombolo")){
+          response = {"text": `entiendo que tantas cosas de la vida, cause tu irrespeto, pero trata de no ser grosero los bots tambien tenemos sentimientos`}
+        }
+        if (mensajeMinuscula.includes("buena") || mensajeMinuscula.includes("me gusta")|| mensajeMinuscula.includes("genial")|| mensajeMinuscula.includes("super")|| mensajeMinuscula.includes("ok")){
+          response = {"text": `Perfecto para comenzar, si quieres dejame tu contacto y te explicare mas detalladamente del modus operandi `}
+        }
+
+        if (mensajeMinuscula.includes("mala") || mensajeMinuscula.includes("no me interesa")|| mensajeMinuscula.includes("no estoy interesado")|| mensajeMinuscula.includes("no estoy interesada")|| mensajeMinuscula.includes("dejame miro")|| mensajeMinuscula.includes("yo te avizo")){
+          response = {"text": `Animate por ser solo tu y meterte al paquete de paginas felices te dare un descuento espectacular y tendras una pagina personalizada y monitoriada, con base de datos como las grandes ligas, asi que no se diga mas dejame tu telefono o llamame al 3022735255 y empezemos pues `}
+        }
+
+      }      
+
        
 
     } 
@@ -187,6 +208,10 @@ app.post('/webhook', (req, res) => {
              }]
            }
          }
+       }
+
+       if (Message.attachments[0].payload.url === "https://scontent.xx.fbcdn.net/v/t39.1997-6/39178562_1505197616293642_5411344281094848512_n.png?_nc_cat=1&_nc_ad=z-m&_nc_cid=0&_nc_zor=9&_nc_ht=scontent.xx&oh=63841a4120770a6d44673f1227a0dd4b&oe=5CB76075"){
+         response = {"text": `Uy manito arriba, simbolo de alegria, sabes que deja tu celu y horario en el que te pueda contactar por fa`}
        }
     }
 
