@@ -114,14 +114,15 @@ app.post('/webhook', (req, res) => {
 
  }
 
- 
+ //matematica basica para anidaciones
  let a=0;
+ let b=0;
  function handleMessage(PSID,Message){
     let response;
-    //matematica para anidaciones
     
-    let b=0;
-    let c=0;
+    
+    
+    
 
       
     
@@ -136,7 +137,7 @@ app.post('/webhook', (req, res) => {
          if (booleano > -1){
            console.log('el mensaje tiene numero valido')
           let numero = mensaje.match(regex3)[0];
-          response = {"text": `Perfecto, he recibido tu numero de celular, pronto me contactare con tigo a este número. Gracias ${numero} :)`}
+          response = {"text": `Perfecto, he recibido tu numero de celular, pronto me contactare con tigo a este número  ${numero}. Gracias :)`}
          }
         }
 
