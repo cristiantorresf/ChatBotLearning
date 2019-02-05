@@ -134,6 +134,8 @@ app.post('/webhook', (req, res) => {
           response = {"text": `Perfecto, he recibido tu numero de celular, pronto me contactare con tigo a este número. Gracias ${numero} :)`}
          }
         }
+
+      hayNumero(mensajeMinuscula); 
       if (Message.text === "Hola"){
         response = {"text": `Buenas como estas :)`}
       }
@@ -184,12 +186,18 @@ app.post('/webhook', (req, res) => {
   
       if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
         response = {"text": `Me alegra que te encuentres bien, y aun te vas a sentir mucho mejor cuando tengas tu pagina personalizada profesional que te impulse tus metas! `}
-        ok ();
+        if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("que bien") || mensajeMinuscula.includes("que bueno")){
+        
+          
+          response = {"text": `Claro que si, no tienes idea de lo poderoso que es hoy en dia contar con pagina web, tendras super poderes digitales`};
+        
+      }
+        
       }
   
       if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("ahi vamos")){
         response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
-        ok ();
+        ok();
       }
 
      
