@@ -118,6 +118,11 @@ app.post('/webhook', (req, res) => {
 
  function handleMessage(PSID,Message){
     let response;
+    //matematica para anidaciones
+    let a=0;
+    let b=0;
+    let c=0;
+
       
     
     // mira si el mensaje contiene texto
@@ -173,14 +178,17 @@ app.post('/webhook', (req, res) => {
       
   
       if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
-        response = {"text": `Me alegra que te encuentres bien, y aun te vas a sentir mucho mejor cuando tengas tu pagina personalizada profesional que te impulse tus metas! `}
+        a =1;
+        response = {"text": `Me alegra que te encuentres bien, y aun te vas a sentir mucho mejor cuando tengas tu pagina personalizada profesional que te impulse tus metas! `}             
+      }
+
+      if (a){
         if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("que bien") || mensajeMinuscula.includes("que bueno")){
         
           
           response = {"text": `Claro que si, no tienes idea de lo poderoso que es hoy en dia contar con pagina web, tendras super poderes digitales`};
         
       }
-        
       }
   
       if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("ahi vamos")){
