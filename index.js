@@ -114,15 +114,54 @@ app.post('/webhook', (req, res) => {
 
  }
 
+ 
+
  function handleMessage(PSID,Message){
     let response;
+    let mensajeMinuscula= Message.text.toLowerCase();   
+    
     // mira si el mensaje contiene texto
     if (Message.text){
        // creando un payload 
-       response = {
-          "text" : `Enviaste el mensaje ${Message.text}. Ahora trata de enviarme una imagen`
-       }
-    } else if (Message.attachments){
+       if (Message.text === "Hola"){
+        response = {"text": `Buenas como estas :)`}
+      }
+      if (Message.text === "hola"){
+        response = {"text": `Buenas como estas :)`}
+      }
+      if (Message.text === "bien"){
+        response = {"text": `me alegro que estes bien, y mucho mejor cuando hagas tu pagina con nosotros`}
+      }
+      if (Message.text === "Bien"){
+        response = {"text": `me alegro que estes bien, y mucho mejor cuando hagas tu pagina con nosotros`}
+      }
+      if (Message.text === "mal"){
+        response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
+      }
+      if (Message.text === "Mal"){
+        response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
+      }
+  
+      if (mensajeMinuscula.includes("hola") || mensajeMinuscula.includes("Hola")){
+        response = {"text": `Saludo, como estas? :)`}
+      }
+  
+      if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("Mal")){
+        response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
+      }
+  
+      if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("Mal")){
+        response = {"text": `me alegro que estes bien, y mucho mejor cuando hagas tu pagina con nosotros`}
+      }
+  
+      if (mensajeMinuscula.includes("pagina") || mensajeMinuscula.includes("web")){
+        response = {"text": `Bien perfecto, Desarrollamos la pagina web de tus sueños parecera una aplicacion de escritorio`}
+      }
+       
+
+    } 
+
+    else if (Message.attachments){
        let attachment_url = Message.attachments[0].payload.url;
        response = {
          "attachment": {
