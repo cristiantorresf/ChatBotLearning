@@ -131,10 +131,9 @@ app.post('/webhook', (req, res) => {
          if (booleano > -1){
            console.log('el mensaje tiene numero valido')
           let numero = mensaje.match(regex3)[0];
-          response = {"text": `Perfecto, he recibido tu numero de celular, pronto me contactare con tigo a este número. Gracias ${numero} :)`
-
-          }
+          response = {"text": `Perfecto, he recibido tu numero de celular, pronto me contactare con tigo a este número. Gracias ${numero} :)`}
          }
+        }
       if (Message.text === "Hola"){
         response = {"text": `Buenas como estas :)`}
       }
@@ -177,7 +176,7 @@ app.post('/webhook', (req, res) => {
       function ok (){
         if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("que bien") || mensajeMinuscula.includes("que bueno")){
         
-          var patt1 = /ok/g;
+          
           response = {"text": `Claro que si, no tienes idea de lo poderoso que es hoy en dia contar con pagina web, tendras super poderes digitales`};
         
       }}
