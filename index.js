@@ -93,7 +93,8 @@ app.post('/webhook', (req, res) => {
  function callSendAPI (PSID,response){
     // construye el cuerpo del mensaje en JSON
     let request_body = {
-      "messaging_type":"RESPONSE",  
+      "messaging_type":"MESSAGE_TAG",
+      "tag":"NON_PROMOTIONAL_SUBSCRIPTION",  
        "recipient" : {
           "id" :PSID
        },
