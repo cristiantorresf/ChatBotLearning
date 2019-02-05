@@ -175,6 +175,20 @@ app.post('/webhook', (req, res) => {
           response = {"text": `Claro que si, no tienes idea de lo poderoso que es hoy en dia contar con pagina web, tendras super poderes digitales`};
         
       }}
+
+      function siga (){
+        b=0;
+        if (mensajeMinuscula.includes("mierda") || mensajeMinuscula.includes("pendejo") || mensajeMinuscula.includes("estupido") || mensajeMinuscula.includes("marica")|| mensajeMinuscula.includes("papanatas")|| mensajeMinuscula.includes("torombolo")){
+          response = {"text": `entiendo que tantas cosas de la vida, cause tu irrespeto, pero trata de no ser grosero los bots tambien tenemos sentimientos`}
+        }
+        if (mensajeMinuscula.includes("buena") || mensajeMinuscula.includes("me gusta")|| mensajeMinuscula.includes("genial")|| mensajeMinuscula.includes("super")|| mensajeMinuscula.includes("ok")){
+          response = {"text": `Perfecto para comenzar, si quieres dejame tu contacto y te explicare mas detalladamente del modus operandi `}
+        }
+
+        if (mensajeMinuscula.includes("mala") || mensajeMinuscula.includes("no me interesa")|| mensajeMinuscula.includes("no estoy interesado")|| mensajeMinuscula.includes("no estoy interesada")|| mensajeMinuscula.includes("dejame miro")|| mensajeMinuscula.includes("yo te avizo")){
+          response = {"text": `Animate por ser solo tu y meterte al paquete de paginas felices te dare un descuento espectacular y tendras una pagina personalizada y monitoriada, con base de datos como las grandes ligas, asi que no se diga mas dejame tu telefono o llamame al 3022735255 y empezemos pues `}
+        }
+      }
       
   
       if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
@@ -182,18 +196,24 @@ app.post('/webhook', (req, res) => {
         response = {"text": `Me alegra que te encuentres bien, y aun te vas a sentir mucho mejor cuando tengas tu pagina personalizada profesional que te impulse tus metas! `}             
       }
 
-      if (a){
-        if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("que bien") || mensajeMinuscula.includes("que bueno")){
-        
-          
-          response = {"text": `Claro que si, no tienes idea de lo poderoso que es hoy en dia contar con pagina web, tendras super poderes digitales`};
-        
+      if (mensajeMinuscula.includes("gracias") || mensajeMinuscula.includes("muy amable") || mensajeMinuscula.includes("excelente")){
+        a =1;
+        response = {"text": `No, gracias a ti por dejarnos contribuir en tus metas `}             
       }
+
+      if (a){
+        a=0;
+        ok();
+      }
+
+      if (b){
+        siga();
       }
   
       if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("ahi vamos")){
+        a=1;
         response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
-        ok();
+        
       }
 
      
@@ -207,17 +227,8 @@ app.post('/webhook', (req, res) => {
       }
 
       if (mensajeMinuscula.includes("precio") || mensajeMinuscula.includes("cuanto vale")){
-        response = {"text": `No te preocupes por el precio, la pagina que desarrollamos le da tanto valor agregado a tu empresa o persona que lo veras como una excelente inversion, Que tal te parece la idea?`}
-        if (mensajeMinuscula.includes("mierda") || mensajeMinuscula.includes("pendejo") || mensajeMinuscula.includes("estupido") || mensajeMinuscula.includes("marica")|| mensajeMinuscula.includes("papanatas")|| mensajeMinuscula.includes("torombolo")){
-          response = {"text": `entiendo que tantas cosas de la vida, cause tu irrespeto, pero trata de no ser grosero los bots tambien tenemos sentimientos`}
-        }
-        if (mensajeMinuscula.includes("buena") || mensajeMinuscula.includes("me gusta")|| mensajeMinuscula.includes("genial")|| mensajeMinuscula.includes("super")|| mensajeMinuscula.includes("ok")){
-          response = {"text": `Perfecto para comenzar, si quieres dejame tu contacto y te explicare mas detalladamente del modus operandi `}
-        }
-
-        if (mensajeMinuscula.includes("mala") || mensajeMinuscula.includes("no me interesa")|| mensajeMinuscula.includes("no estoy interesado")|| mensajeMinuscula.includes("no estoy interesada")|| mensajeMinuscula.includes("dejame miro")|| mensajeMinuscula.includes("yo te avizo")){
-          response = {"text": `Animate por ser solo tu y meterte al paquete de paginas felices te dare un descuento espectacular y tendras una pagina personalizada y monitoriada, con base de datos como las grandes ligas, asi que no se diga mas dejame tu telefono o llamame al 3022735255 y empezemos pues `}
-        }
+        b=1;
+        response = {"text": `No te preocupes por el precio, la pagina que desarrollamos le da tanto valor agregado a tu empresa o persona que lo veras como una excelente inversion, Que tal te parece la idea?`}       
 
       }      
 
