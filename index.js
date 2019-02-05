@@ -115,11 +115,11 @@ app.post('/webhook', (req, res) => {
  }
 
  
-
+ let a=0;
  function handleMessage(PSID,Message){
     let response;
     //matematica para anidaciones
-    let a=0;
+    
     let b=0;
     let c=0;
 
