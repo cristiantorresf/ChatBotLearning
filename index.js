@@ -124,7 +124,18 @@ app.post('/webhook', (req, res) => {
     if (Message.text){
       let mensajeMinuscula= Message.text.toLowerCase(); 
        // creando un payload 
-       if (Message.text === "Hola"){
+
+      function hayNumero (mensaje){
+        let regex3 = /\b(\d{10}|\d{3}\s\d{4}\s\d{3}|\d{3}\s\d{7}|\d{3}\s\d{3}\s\d{4})\b/; 
+        let booleano = mensaje.search(regex3);
+         if (booleano > -1){
+           console.log('el mensaje tiene numero valido')
+          let numero = mensaje.match(regex3)[0];
+          response = {"text": `Perfecto, he recibido tu numero de celular, pronto me contactare con tigo a este número. Gracias ${numero} :)`
+
+          }
+         }
+      if (Message.text === "Hola"){
         response = {"text": `Buenas como estas :)`}
       }
       if (Message.text === "hola"){
@@ -147,6 +158,8 @@ app.post('/webhook', (req, res) => {
         response = {"text": `Saludo, como estas? :)`}
       }
 
+
+
       if (mensajeMinuscula.includes("buenos dias") || mensajeMinuscula.includes("buenos días ")|| mensajeMinuscula.includes("buen día ")){
         response = {"text": `Muy buenos días espero que haya tenido un buen desayuno, Como estas? :)`}
       }
@@ -161,14 +174,26 @@ app.post('/webhook', (req, res) => {
       if (mensajeMinuscula.includes("ja") || mensajeMinuscula.includes("jaja") || mensajeMinuscula.includes("jajaja")){
         response = {"text": `😄 jeje`}
       }
+      function ok (){
+        if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("que bien") || mensajeMinuscula.includes("que bueno")){
+        
+          var patt1 = /ok/g;
+          response = {"text": `Claro que si, no tienes idea de lo poderoso que es hoy en dia contar con pagina web, tendras super poderes digitales`};
+        
+      }}
+      
   
       if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
         response = {"text": `Me alegra que te encuentres bien, y aun te vas a sentir mucho mejor cuando tengas tu pagina personalizada profesional que te impulse tus metas! `}
+        ok ();
       }
   
       if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("ahi vamos")){
         response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
+        ok ();
       }
+
+     
   
       if (mensajeMinuscula.includes("pagina") || mensajeMinuscula.includes("web")){
         response = {"text": `Bien perfecto, Desarrollamos la pagina web personal o comercial, Cuentame mas al respecto? mi numero es 3022735255`}
