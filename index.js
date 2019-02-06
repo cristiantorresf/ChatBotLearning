@@ -202,7 +202,7 @@ app.post('/webhook', (req, res) => {
 
     // asincrona function
     personalizada().then(()=>{
-      if (mensajeMinuscula != "Necesito una App personalizada. Me pueden llamar?"){
+      if (mensajeMinuscula != "Necesito una App personalizada. Me pueden llamar?".toLowerCase()){
         let responseModificada ={"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`}; 
         callSendAPI(PSID,responseModificada);
       }
