@@ -72,6 +72,10 @@ app.post('/webhook', (req, res) => {
        console.log('""""""""""""""""""""""""""""""""""""');
        console.log(`sender_psid => ${sender_psid}`);
 
+       if (b==="anidacion"){
+         secondthreath(sender_psid,webhook_event.message.text.toLowerCase());
+       }
+
        if (webhook_event.message){
           handleMessage(sender_psid,webhook_event.message);
           
@@ -137,6 +141,15 @@ app.post('/webhook', (req, res) => {
     });
   }
 
+function secondthreath(PSID,Message){
+  
+  if (Message.length > 2){
+    let mensajito = {"text":`Claro que si cuentame mas de como te podriamos colaborar`};
+    callSendAPI(PSID,Message);
+  }
+
+}
+
  function callSendAPI (PSID,response){
     // construye el cuerpo del mensaje en JSON
     let request_body = {
@@ -162,7 +175,7 @@ app.post('/webhook', (req, res) => {
  }
 
  //matematica basica para anidaciones
- let a=0;
+ let a;
  let atemp = '';
  let b=0;
  let c=0;
@@ -242,7 +255,7 @@ app.post('/webhook', (req, res) => {
           Porque queremos brindarte una asesoria personalizada :)`};
           a=1;
           atemp = mensajeMinuscula;
-          callSendApiAsync(PSID,responseTwo)
+          callSendApi(PSID,responseTwo);
           resolve();
           }          
           
@@ -253,18 +266,9 @@ app.post('/webhook', (req, res) => {
 
     // asincrona function
     personalizada().then(()=>{
-      if (a){
-      
-        let responseModificada ={"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`}; 
-        let valide = {"text":`response = ${JSON.stringify(response)} a = ${a} mensajeMinuscula = ${mensajeMinuscula} atemp = ${JSON.stringify(atemp)} `};
-        if (mensajeMinuscula.length > 2 ){
-        callSendAPI(PSID,responseModificada);
-        a=0;
-        
-      }
-       
-        
-      }
+
+      b="anidacion";
+     
       
     });
     
