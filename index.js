@@ -118,6 +118,7 @@ app.post('/webhook', (req, res) => {
  let a=0;
  let b=0;
  let c=0;
+ 
  function handleMessage(PSID,Message){
     let response;
     
@@ -160,7 +161,8 @@ app.post('/webhook', (req, res) => {
 
 
       if (mensajeMinuscula.includes("buenos dias") || mensajeMinuscula.includes("buenos días ")|| mensajeMinuscula.includes("buen día ")){
-        response = {"text": `Muy buenos días espero que haya tenido un buen desayuno, Como estas? :)`}
+        response = {"text": `Muy buenos días, Como estas? :) Estamos a tu servicio, tienes un numero de telefono para contactarte? 
+        por que queremos brindarte una asesoria personalizada,:)`}
       }
 
       if (mensajeMinuscula.includes("buenas tardes") || mensajeMinuscula.includes("buena tarde")){
