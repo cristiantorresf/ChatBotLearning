@@ -5,10 +5,11 @@ const
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json());
-  OrdenChat = require('./chatorder');
+  
   
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const request = require('request');
+const OrdenChat = require('./chatorder');
 
 
 app.set('port',process.env.PORT || 1337);
