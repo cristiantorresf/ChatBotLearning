@@ -182,13 +182,21 @@ app.post('/webhook', (req, res) => {
       // asincrona function
       personalizada();
       // ahora si
-
-      if (YaOcurrioAsincrono){
-        
-        response = {"text" : `Este es el orden de anidacion despues de cada pregunta `};
+      if (no){
         YaOcurrioAsincrono= false;
-
       }
+      let no=false;
+      async function a (){
+        if (YaOcurrioAsincrono){
+        
+          no = await ()=>{response = {"text" : `Este es el orden de anidacion despues de cada pregunta `};return true;}
+         
+          
+  
+        }
+
+      } 
+     
       
 
       
