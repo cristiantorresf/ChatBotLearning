@@ -207,9 +207,9 @@ app.post('/webhook', (req, res) => {
       }
 
       function respuestaPrimera(){
-        c=0;
+        ca=0;
 
-         if (!c){        
+         if (!ca){        
          response = {"text": `Perfecto, me parece interesante, te parece bien si te llamo y me cuentas un poco mas para entender mejor tu idea y empezar a trabajar en tú proyecto `}}  
        
      }
