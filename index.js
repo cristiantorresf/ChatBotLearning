@@ -9,7 +9,7 @@ const
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const request = require('request');
 var rp = require('request-promise');
-let universal;
+
 
 
 app.set('port',process.env.PORT || 1337);
@@ -74,7 +74,8 @@ app.post('/webhook', (req, res) => {
 
        if (webhook_event.message){
           handleMessage(sender_psid,webhook_event.message);
-          universal = {"PSID":sender_psid,"text":webhook_event.message.text.toLowerCase()} || "no hay nada";
+          
+          
           console.log('funcion');
        } else if (webhook_event.postback){
           handlePostback(sender_psid,webhook_event.postback);
@@ -93,17 +94,7 @@ app.post('/webhook', (req, res) => {
  
  });
 
- function AnidePrimera(){
-  let response;
-  if (universal.PSID || universal.text){
-
-    response = {"text":`Espectacular quedate con nosotros y encontraras la magia del mundo`};
-    callSendAPI(universal.PSID,response);
-    
-  }
-
-  
-}
+ 
 
  function callSendApiAsync (PSID,response){
    // construye el cuerpo del mensaje en JSON
@@ -115,17 +106,33 @@ app.post('/webhook', (req, res) => {
      },
      "message": response
   };
-  var options = {
+  let request_body2 = {
+    "messaging_type":"MESSAGE_TAG",
+    "tag":"NON_PROMOTIONAL_SUBSCRIPTION",  
+     "recipient" : {
+        "id" :PSID
+     },
+     "message": {"text":`funcion anidada correctamente funcionando`}
+  };
+  let options = {
     method: 'POST',
     uri: 'https://graph.facebook.com/v2.6/me/messages',
     qs: { "access_token": PAGE_ACCESS_TOKEN },
     json: request_body 
    }
+   let options2 = {
+    method: 'POST',
+    uri: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: { "access_token": PAGE_ACCESS_TOKEN },
+    json: request_body2 
+   }
 
    rp(options)
    .then((success)=>{
      console.log("everything successful"+success);
-     AnidePrimera();
+     return rp(options2)
+
+          
      
     });
   }
@@ -249,9 +256,9 @@ app.post('/webhook', (req, res) => {
       if (a){
       
         let responseModificada ={"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`}; 
-        let valide = {"text":`response = ${JSON.stringify(response)} a = ${a} mensajeMinuscula = ${mensajeMinuscula} atemp = ${JSON.stringify(atemp)} `}
-        if (mensajeMinuscula != atemp ){
-        callSendAPI(PSID,valide);}
+        let valide = {"text":`response = ${JSON.stringify(response)} a = ${a} mensajeMinuscula = ${mensajeMinuscula} atemp = ${JSON.stringify(atemp)} `};
+        if (mensajeMinuscula.length > 2 ){
+        callSendAPI(PSID,responseModificada);}
         a=0;
         
       }
