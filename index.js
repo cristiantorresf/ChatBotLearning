@@ -142,8 +142,9 @@ app.post('/webhook', (req, res) => {
           response = {"text": `Perfecto, he recibido tu numero de celular, pronto me contactare con tigo a este número  ${numero}. Gracias :)`}
          }
         }
-
+      // coje el numero de telefono  
       hayNumero(mensajeMinuscula); 
+
       if (Message.text === "Hola"){
         response = {"text": `Buenas como estas :)`}
       }
@@ -155,7 +156,7 @@ app.post('/webhook', (req, res) => {
         response = {"text": `Hola como estas ? :)`}
       }
 
-      if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?"){
+      if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase()  ){
         response = {"text": `Hola perfecto,como quieres tu aplicación,para que area la necesitas?:) tienes un numero de telefono para contactarte?
         por que queremos brindarte una asesoria personalizada  `}
         c=1;
