@@ -165,8 +165,11 @@ app.post('/webhook', (req, res) => {
       async function personalizada () {
 
         if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
-          let YaOcurrioAsincrono = await EnvieRespuesta({"text": `Hola perfecto,como quieres tu aplicación,para que area la necesitas?:) tienes un numero de telefono para contactarte?
-          por que queremos brindarte una asesoria personalizada `});
+          let YaOcurrioAsincrono = await EnvieRespuesta({"text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)
+          
+          tienes un numero de telefono para contactarte?
+          
+          Porque queremos brindarte una asesoria personalizada :)`});
           //debugging
           console.log("99999999999999999999999999999999999999999999");
           console.log("99999999999999999999999999999999999999999999");
