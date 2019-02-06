@@ -222,13 +222,13 @@ if (Message.text){
   }
 
  
-  function ok (){
+  
     if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("que bien") || mensajeMinuscula.includes("que bueno")){
     
       
       response = {"text": `Claro que si, no tienes idea de lo poderoso que es hoy en dia contar con pagina web, tendras super poderes digitales`};
     
-  }}
+  
 
   function siga (){
     
@@ -250,7 +250,7 @@ if (Message.text){
     
     response = {"text": `Me alegra que te encuentres bien, y aun te vas a sentir mucho mejor cuando tengas tu pagina personalizada profesional que te impulse tus metas! `
     } 
-    ok();            
+               
   }
 
   if (mensajeMinuscula.includes("gracias") || mensajeMinuscula.includes("muy amable") || mensajeMinuscula.includes("excelente")){
