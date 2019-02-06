@@ -131,14 +131,8 @@ app.post('/webhook', (req, res) => {
     json: request_body2 
    }
 
-   rp(options)
-   .then((success)=>{
-     console.log("everything successful"+success);
-     return rp(options2)
-
-          
-     
-    });
+   rp(options);
+   
   }
 
 function secondthreath(PSID,Message){
