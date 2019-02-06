@@ -122,23 +122,27 @@ app.post('/webhook', (req, res) => {
  // esta variable guarda si ya se disparo el orden, lo hice anterior pero chimbero  
  let YaOcurrioAsincrono = false;
  let no=false;
+ function one (){
+   console.log("primero");
+ }
+ function two (){
+   console.log("segundo");
+ }
+ function three () {
+   console.log("tercero");
+ }
+ function four (){
+   console.log("cuarto");
+ }
  
  
  function handleMessage(PSID,Message){
 
-  function test (){
-  console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&`);
-  console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&`);
-  console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&`);
-  console.log(!YaOcurrioAsincrono);
-  console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&`);
-  console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&`);
-  console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&`);
-  }
-
-
-  test(); 
-  
+ 
+  one();
+  two();
+  three();
+  four();
 
         
  }
