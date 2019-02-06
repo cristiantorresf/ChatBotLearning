@@ -189,7 +189,7 @@ app.post('/webhook', (req, res) => {
       async function a (){
         if (YaOcurrioAsincrono){
         
-          no = await ()=>{response = {"text" : `Este es el orden de anidacion despues de cada pregunta `};return true;}
+          no = await function (){response = {"text" : `Este es el orden de anidacion despues de cada pregunta `};return true;}
          
           
   
