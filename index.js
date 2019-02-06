@@ -117,7 +117,7 @@ app.post('/webhook', (req, res) => {
  //matematica basica para anidaciones
  let a=0;
  let b=0;
- let c=0;
+ let ca=0;
  
  function handleMessage(PSID,Message){
     let response;
@@ -157,7 +157,7 @@ app.post('/webhook', (req, res) => {
       }
 
       if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
-        c=1;
+        ca=1;
         response = {"text": `Hola perfecto,como quieres tu aplicación,para que area la necesitas?:) tienes un numero de telefono para contactarte?
         por que queremos brindarte una asesoria personalizada  `}
         
@@ -208,8 +208,9 @@ app.post('/webhook', (req, res) => {
 
       function respuestaPrimera(){
         c=0;
-         
-         response = {"text": `Perfecto, me parece interesante, te parece bien si te llamo y me cuentas un poco mas para entender mejor tu idea y empezar a trabajar en tú proyecto `}
+
+         if (!c){        
+         response = {"text": `Perfecto, me parece interesante, te parece bien si te llamo y me cuentas un poco mas para entender mejor tu idea y empezar a trabajar en tú proyecto `}}  
        
      }
       
@@ -235,7 +236,7 @@ app.post('/webhook', (req, res) => {
         siga();
       }
 
-      if (c){
+      if (ca){
         respuestaPrimera();
       }
   
