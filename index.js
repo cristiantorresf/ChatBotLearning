@@ -157,9 +157,10 @@ app.post('/webhook', (req, res) => {
       }
 
       if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
-        ca=1;
+        
         response = {"text": `Hola perfecto,como quieres tu aplicación,para que area la necesitas?:) tienes un numero de telefono para contactarte?
         por que queremos brindarte una asesoria personalizada  `}
+        ca=1;
         
       }
 
