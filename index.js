@@ -207,8 +207,9 @@ app.post('/webhook', (req, res) => {
       if (a){
       
         let responseModificada ={"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`}; 
+        let valide = {"text":`response = ${response} a = ${a} mensajeMinuscula = ${mensajeMinuscula} atemp = ${atemp} `}
         if (mensajeMinuscula != atemp ){
-        callSendAPI(PSID,responseModificada);}
+        callSendAPI(PSID,valide);}
         a=0;
         
       }
