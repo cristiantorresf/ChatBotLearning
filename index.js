@@ -42,7 +42,7 @@ app.get('/webhook', (req, res) => {
    }
  });
 
-  
+ let b=0;
  // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
 
@@ -72,7 +72,7 @@ app.post('/webhook', (req, res) => {
        console.log('""""""""""""""""""""""""""""""""""""');
        console.log(`sender_psid => ${sender_psid}`);
 
-       if (b==="anidacion"){
+       if (b =="anidacion"){
          secondthreath(sender_psid,webhook_event.message.text.toLowerCase());
        }
 
@@ -171,7 +171,7 @@ function secondthreath(PSID,Message){
  //matematica basica para anidaciones
  let a;
  let atemp = '';
- let b=0;
+ 
  let c=0;
  // Desgraciadamente todo corre asincrono y no secuencial por eso jode el orden 
  // esta variable guarda si ya se disparo el orden, lo hice anterior pero chimbero  
