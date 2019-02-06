@@ -159,7 +159,7 @@ app.post('/webhook', (req, res) => {
       if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
         
         response = {"text": `Hola perfecto,como quieres tu aplicación,para que area la necesitas?:) tienes un numero de telefono para contactarte?
-        por que queremos brindarte una asesoria personalizada  `}
+        por que queremos brindarte una asesoria personalizada  ${ca} `}
         ca=1;
         
       }
@@ -208,10 +208,11 @@ app.post('/webhook', (req, res) => {
       }
 
       function respuestaPrimera(){
-        ca=0;
+          
 
-         if (!ca){        
-         response = {"text": `Perfecto, me parece interesante, te parece bien si te llamo y me cuentas un poco mas para entender mejor tu idea y empezar a trabajar en tú proyecto `}}  
+                
+         response = {"text": `Perfecto, me parece interesante, te parece bien si te llamo y me cuentas un poco mas para entender mejor tu idea y empezar a trabajar en tú proyecto ${ca}`}; 
+         ca=0;
        
      }
       
