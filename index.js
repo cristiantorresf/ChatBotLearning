@@ -186,6 +186,8 @@ app.post('/webhook', (req, res) => {
       if (YaOcurrioAsincrono){
         
         response = {"text" : `Este es el orden de anidacion despues de cada pregunta `};
+        YaOcurrioAsincrono= false;
+
       }
       
 
