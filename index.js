@@ -210,9 +210,10 @@ app.post('/webhook', (req, res) => {
     if (a){
       
       let responseModificada ={"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`}; 
-      if (atemp !=response ){
-      a=0;
+      if (mensajeMinuscula != atemp ){
       callSendAPI(PSID,responseModificada);}
+      a=0;
+      
     }
     
     
