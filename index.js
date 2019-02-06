@@ -122,27 +122,31 @@ app.post('/webhook', (req, res) => {
  // esta variable guarda si ya se disparo el orden, lo hice anterior pero chimbero  
  let YaOcurrioAsincrono = false;
  let no=false;
- function one (){
+ function one (PSID,response){
    console.log("primero");
+   callSendAPI(PSID,response);
  }
- function two (){
+ function two (PSID,response){
    console.log("segundo");
+   callSendAPI(PSID,response);
  }
- function three () {
+ function three (PSID,response) {
    console.log("tercero");
+   callSendAPI(PSID,response);
  }
- function four (){
+ function four (PSID,response){
    console.log("cuarto");
+   callSendAPI(PSID,response);
  }
  
  
  function handleMessage(PSID,Message){
 
- 
-  one();
-  two();
-  three();
-  four();
+ if (Message.text){
+  one(PSID,{"text":`primero`});
+  two(PSID,{"text":`segundo`});
+  three(PSID,{"text":`tercero`});
+  four(PSID,{"text":`cuarto`});}
 
         
  }
