@@ -72,10 +72,10 @@ app.post('/webhook', (req, res) => {
 
        if (webhook_event.message){
           handleMessage(sender_psid,webhook_event.message);
-          console.log('funcion')
+          console.log('funcion');
        } else if (webhook_event.postback){
           handlePostback(sender_psid,webhook_event.postback);
-          console.log('postback function')
+          console.log('postback function');
        }
       
 
@@ -316,8 +316,8 @@ app.post('/webhook', (req, res) => {
        }
     }
 
-    // Envie el mensaje respuesta
-    //callSendAPI(PSID,response);
+    // Envie el mensaje respuesta jaja no se le olvide enviar 
+    callSendAPI(PSID,response);
  }
  function handlePostback(PSID,Postback){
     let response;
