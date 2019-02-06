@@ -188,7 +188,7 @@ app.post('/webhook', (req, res) => {
   
           Porque queremos brindarte una asesoria personalizada :)`};
 
-          resolve(true);
+          resolve();
           }          
           
       })
@@ -197,7 +197,9 @@ app.post('/webhook', (req, res) => {
     }
 
     // asincrona function
-    personalizada().then((a)=>{response={"text":`${a} Anidacion como quieres tu aplicacion`}})
+    personalizada().then(()=>{
+      console.log('Ejecucion de promesa con exito')}
+    );
     
     
 
