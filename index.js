@@ -118,6 +118,9 @@ app.post('/webhook', (req, res) => {
  let a=0;
  let b=0;
  let c=0;
+ // Desgraciadamente todo corre asincrono y no secuencial por eso jode el orden 
+ // esta variable guarda si ya se disparo el orden, lo hice anterior pero chimbero  
+ let YaOcurrioAsincrono = false;
  
  
  function handleMessage(PSID,Message){
@@ -166,26 +169,24 @@ app.post('/webhook', (req, res) => {
       async function personalizada () {
 
         if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
-          let YaOcurrioAsincrono = await EnvieRespuesta({"text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)
+           YaOcurrioAsincrono = await EnvieRespuesta({"text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)
           
-          tienes un numero de telefono para contactarte?
+        tienes un numero de telefono para contactarte?
           
-          Porque queremos brindarte una asesoria personalizada :)`});
-          //debugging
-          console.log("99999999999999999999999999999999999999999999");
-          console.log("99999999999999999999999999999999999999999999");
-          console.log("99999999999999999999999999999999999999999999");
-          console.log(YaOcurrioAsincrono);  
-          console.log("99999999999999999999999999999999999999999999");
-          console.log("99999999999999999999999999999999999999999999");
-          console.log("99999999999999999999999999999999999999999999");      
+        Porque queremos brindarte una asesoria personalizada :)`});
+              
               
          }        
       }
 
       // asincrona function
       personalizada();
+      // ahora si
 
+      if (YaOcurrioAsincrono === true){
+        YaOcurrioAsincrono = false;
+        response = {"text" : `Este es el orden de anidacion despues de cada pregunta `};
+      }
       
 
       
