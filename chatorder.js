@@ -91,7 +91,7 @@ module.exports = {
          }}
    
          function siga (){
-           b=0;
+           
            if (mensajeMinuscula.includes("mierda") || mensajeMinuscula.includes("pendejo") || mensajeMinuscula.includes("estupido") || mensajeMinuscula.includes("marica")|| mensajeMinuscula.includes("papanatas")|| mensajeMinuscula.includes("torombolo")){
              response = {"text": `entiendo que tantas cosas de la vida, cause tu irrespeto, pero trata de no ser grosero los bots tambien tenemos sentimientos`}
            }
@@ -114,28 +114,16 @@ module.exports = {
          }
    
          if (mensajeMinuscula.includes("gracias") || mensajeMinuscula.includes("muy amable") || mensajeMinuscula.includes("excelente")){
-           a =1;
+           
            response = {"text": `No, gracias a ti por dejarnos contribuir en tus metas `}             
          }
-   
-         if (a){
-           a=0;
-           ok();
-         }
-   
-         if (b){
-           siga();
-         }
-   
-         
      
          if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("ahi vamos")){
-           a=1;
+           
            response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
            
          }
-   
-        
+          
      
          if (mensajeMinuscula.includes("pagina") || mensajeMinuscula.includes("web")){
            response = {"text": `Bien perfecto, ¿Tienes un número de teléfono en el que te podamos contactar?`}
@@ -146,7 +134,7 @@ module.exports = {
          }
    
          if (mensajeMinuscula.includes("precio") || mensajeMinuscula.includes("cuanto vale")){
-           b=1;
+           
            response = {"text": `No te preocupes por el precio, la pagina que desarrollamos le da tanto valor agregado a tu empresa o persona que lo veras como una excelente inversion, Que tal te parece la idea?`}       
    
          }      
