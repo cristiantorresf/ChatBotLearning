@@ -1,5 +1,5 @@
-module.exports.main = function (Message,PSID){
-   let response;
+module.exports.principal = function (Message,PSID){
+   
    // mira si el mensaje contiene texto
    if (Message.text){
       let mensajeMinuscula= Message.text.toLowerCase(); 
