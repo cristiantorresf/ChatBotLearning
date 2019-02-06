@@ -170,11 +170,18 @@ app.post('/webhook', (req, res) => {
       async function personalizada () {
 
         if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
-           YaOcurrioAsincrono = await EnvieRespuesta({"text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)
-          
-        tienes un numero de telefono para contactarte?
-          
-        Porque queremos brindarte una asesoria personalizada :)`});
+
+          YaOcurrioAsincrono = await EnvieRespuesta({"text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
+
+          tienes un numero de telefono para contactarte?        
+
+          Porque queremos brindarte una asesoria personalizada :)`});
+          if (YaOcurrioAsincrono){
+        
+            response = {"text" : `Este es el orden de anidacion despues de cada pregunta `};    
+            
+    
+          }
               
               
          }        
@@ -182,23 +189,7 @@ app.post('/webhook', (req, res) => {
 
       // asincrona function
       personalizada();
-      // ahora si
-      if (no){
-        YaOcurrioAsincrono= false;
-      }
       
-      async function ads (){
-        if (YaOcurrioAsincrono){
-        
-          no = await function (){response = {"text" : `Este es el orden de anidacion despues de cada pregunta `};return true;}
-         
-          
-  
-        }
-
-      } 
-      ads();
-     
       
 
       
