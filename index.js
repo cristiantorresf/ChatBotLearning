@@ -117,6 +117,7 @@ app.post('/webhook', (req, res) => {
  //matematica basica para anidaciones
  let a=0;
  let b=0;
+ let c=0;
  function handleMessage(PSID,Message){
     let response;
     
@@ -149,8 +150,8 @@ app.post('/webhook', (req, res) => {
         response = {"text": `Buenas como estas :)`}
       }
         
-      if (mensajeMinuscula.includes("hola") || mensajeMinuscula.includes("Hola")){
-        response = {"text": `Saludo, como estas? :)`}
+      if (mensajeMinuscula.includes("hola")){
+        response = {"text": `Hola como estas ? :)`}
       }
 
 
@@ -170,9 +171,7 @@ app.post('/webhook', (req, res) => {
         response = {"text": `😄 jeje`}
       }
 
-      if (mensajeMinuscula.includes("bien y tu") || mensajeMinuscula.includes("que me cuentas") || mensajeMinuscula.includes("que has hecho")){
-        response = {"text": `😄 Yo de maravilla, contento por que Cristian me dio vida, soy un bot happy, sabes que? dame tu numero y obten el 70% :O para tu primera pagina que dices?`}
-      }
+     
       function ok (){
         if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("que bien") || mensajeMinuscula.includes("que bueno")){
         
@@ -198,7 +197,9 @@ app.post('/webhook', (req, res) => {
   
       if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
         a =1;
-        response = {"text": `Me alegra que te encuentres bien, y aun te vas a sentir mucho mejor cuando tengas tu pagina personalizada profesional que te impulse tus metas! `}             
+        response = {"text": `Me alegra que te encuentres bien, y aun te vas a sentir mucho mejor cuando tengas tu pagina personalizada profesional que te impulse tus metas! `
+        } 
+        ok();            
       }
 
       if (mensajeMinuscula.includes("gracias") || mensajeMinuscula.includes("muy amable") || mensajeMinuscula.includes("excelente")){
