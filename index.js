@@ -157,8 +157,8 @@ app.post('/webhook', (req, res) => {
         response = {"text": `Hola como estas ? :)`}
       }
 
-      function EnvieRespuesta (response){
-        response = response;
+      function EnvieRespuesta (responseObjeto){
+        response = responseObjeto;
       }
 
       async function personalizada () {
