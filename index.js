@@ -198,7 +198,8 @@ app.post('/webhook', (req, res) => {
 
     // asincrona function
     personalizada().then(()=>{
-      console.log('Ejecucion de promesa con exito')}
+      callSendAPI(PSID,{"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`});
+    }
     );
     
     
