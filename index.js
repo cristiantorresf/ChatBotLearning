@@ -116,6 +116,7 @@ app.post('/webhook', (req, res) => {
 
  //matematica basica para anidaciones
  let a=0;
+ let atemp = '';
  let b=0;
  let c=0;
  // Desgraciadamente todo corre asincrono y no secuencial por eso jode el orden 
@@ -192,6 +193,7 @@ app.post('/webhook', (req, res) => {
   
           Porque queremos brindarte una asesoria personalizada :)`};
           a=1;
+          atemp = response;
           resolve();
           }          
           
@@ -206,9 +208,11 @@ app.post('/webhook', (req, res) => {
     
 
     if (a){
-      a=0;
+      
       let responseModificada ={"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`}; 
-      callSendAPI(PSID,responseModificada);
+      if (atemp !=response ){
+      a=0;
+      callSendAPI(PSID,responseModificada);}
     }
     
     
