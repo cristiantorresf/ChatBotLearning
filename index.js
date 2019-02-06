@@ -315,7 +315,7 @@ app.post('/webhook', (req, res) => {
     }
 
     // Envie el mensaje respuesta
-    callSendAPI(PSID,response);
+    //callSendAPI(PSID,response);
  }
  function handlePostback(PSID,Postback){
     let response;
