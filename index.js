@@ -140,6 +140,8 @@ app.post('/webhook', (req, res) => {
   let response;
  
   if (Message.text){
+
+
     let mensajeMinuscula= Message.text.toLowerCase(); 
      // creando un payload 
 
@@ -170,30 +172,32 @@ app.post('/webhook', (req, res) => {
       response = responseObjeto;
       return true;
     }
+
+    
     
 
-    async function personalizada () {
+     function personalizada () {
 
-      if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
+      return new Promise ((resolve,reject)=>{
 
-        YaOcurrioAsincrono = await EnvieRespuesta({"text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
+        if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
 
-        tienes un numero de telefono para contactarte?        
-
-        Porque queremos brindarte una asesoria personalizada :)`});
-        if (YaOcurrioAsincrono){
-      
-          response = {"text" : `Este es el orden de anidacion despues de cada pregunta `};    
-          
+          response = { "text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
   
-        }
-            
-            
-       }        
+          tienes un numero de telefono para contactarte?        
+  
+          Porque queremos brindarte una asesoria personalizada :)`};
+
+          resolve();
+          }          
+          
+      })
+
+             
     }
 
     // asincrona function
-    personalizada();
+    personalizada().then(()=>{response={"text":`Anidacion como quieres tu aplicacion`}})
     
     
 
