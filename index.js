@@ -203,19 +203,21 @@ app.post('/webhook', (req, res) => {
     }
 
     // asincrona function
-    personalizada()
+    personalizada().then(()=>{
+      if (a){
+      
+        let responseModificada ={"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`}; 
+        if (mensajeMinuscula != atemp ){
+        callSendAPI(PSID,responseModificada);}
+        a=0;
+        
+      }
+      
+    });
     
     
 
-    if (a){
-      
-      let responseModificada ={"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`}; 
-      if (mensajeMinuscula != atemp ){
-      callSendAPI(PSID,responseModificada);}
-      a=0;
-      
-    }
-    
+  
     
 
     
