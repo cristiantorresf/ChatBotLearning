@@ -203,6 +203,8 @@ app.post('/webhook', (req, res) => {
     }
 
     // asincrona function
+    let valide = {"text":`****a = ${a} ***mensajeMinuscula = ${mensajeMinuscula} ***atemp = ${JSON.stringify(atemp)} `}
+    callSendAPI(PSID,valide);
     personalizada().then(()=>{
       if (a){
       
