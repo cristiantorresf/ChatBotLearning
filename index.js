@@ -8,6 +8,8 @@ const
   
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const request = require('request');
+var rp = require('request-promise');
+let universal;
 
 
 app.set('port',process.env.PORT || 1337);
@@ -72,6 +74,7 @@ app.post('/webhook', (req, res) => {
 
        if (webhook_event.message){
           handleMessage(sender_psid,webhook_event.message);
+          universal = {"PSID":sender_psid,"text":webhook_event.message.text.toLowerCase()} || "no hay nada";
           console.log('funcion');
        } else if (webhook_event.postback){
           handlePostback(sender_psid,webhook_event.postback);
@@ -89,6 +92,43 @@ app.post('/webhook', (req, res) => {
    }
  
  });
+
+ function AnidePrimera(){
+  let response;
+  if (universal.PSID || universal.text){
+
+    response = {"text":`Espectacular quedate con nosotros y encontraras la magia del mundo`};
+    callSendAPI(universal.PSID,response);
+    
+  }
+
+  
+}
+
+ function callSendApiAsync (PSID,response){
+   // construye el cuerpo del mensaje en JSON
+   let request_body = {
+    "messaging_type":"MESSAGE_TAG",
+    "tag":"NON_PROMOTIONAL_SUBSCRIPTION",  
+     "recipient" : {
+        "id" :PSID
+     },
+     "message": response
+  };
+  var options = {
+    method: 'POST',
+    uri: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: { "access_token": PAGE_ACCESS_TOKEN },
+    json: request_body 
+   }
+
+   rp(options)
+   .then((success)=>{
+     console.log("everything successful"+success);
+     AnidePrimera();
+     
+    });
+  }
 
  function callSendAPI (PSID,response){
     // construye el cuerpo del mensaje en JSON
@@ -139,6 +179,7 @@ app.post('/webhook', (req, res) => {
  
  function handleMessage(PSID,Message){
   let response;
+  let responseTwo;
  
   if (Message.text){
 
@@ -187,13 +228,14 @@ app.post('/webhook', (req, res) => {
 
         if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
 
-          response = { "text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
+          responseTwo = { "text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
   
           tienes un numero de telefono para contactarte?        
   
           Porque queremos brindarte una asesoria personalizada :)`};
           a=1;
           atemp = mensajeMinuscula;
+          callSendApiAsync(PSID,responseTwo)
           resolve();
           }          
           
