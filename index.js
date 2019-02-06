@@ -348,4 +348,4 @@ callSendAPI(PSID,response);
 
 // creates express http server
 // Sets server port and logs message on success
-app.listen(app.get('port'), () => console.log(`webhook is listening on port ${app.get('port')}`));
+app.listen(app.get('port'), () => console.log(`webhook is listening on port ${app.get('port')}`))
