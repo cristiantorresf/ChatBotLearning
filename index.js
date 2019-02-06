@@ -191,7 +191,7 @@ app.post('/webhook', (req, res) => {
           tienes un numero de telefono para contactarte?        
   
           Porque queremos brindarte una asesoria personalizada :)`};
-
+          a=1;
           resolve();
           }          
           
@@ -202,7 +202,8 @@ app.post('/webhook', (req, res) => {
 
     // asincrona function
     personalizada().then(()=>{
-      if (mensajeMinuscula != "Necesito una App personalizada. Me pueden llamar?".toLowerCase()){
+      if (a){
+        a=0;
         let responseModificada ={"text":`Que bien me gusta la idea, podemos empezar a trabajar ya mismo`}; 
         callSendAPI(PSID,responseModificada);
       }
