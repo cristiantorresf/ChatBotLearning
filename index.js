@@ -163,16 +163,9 @@ app.post('/webhook', (req, res) => {
         
       }
 
-      function respuestaPrimera(){
-        c=0;
-        
-          response = {"text": `Perfecto, me parece interesante, te parece bien si te llamo y me cuentas un poco mas para entender mejor tu idea y empezar a trabajar en tú proyecto `}
-        
-      }
+      
 
-      if (c){
-        respuestaPrimera();
-      }
+      
       
       if (mensajeMinuscula.includes("buenos dias") || mensajeMinuscula.includes("buenos días ")|| mensajeMinuscula.includes("buen día ")){
         response = {"text": `Muy buenos días, Como estas? :) Estamos a tu servicio, tienes un numero de telefono para contactarte? 
@@ -212,6 +205,13 @@ app.post('/webhook', (req, res) => {
           response = {"text": `Animate por ser solo tu y meterte al paquete de paginas felices te dare un descuento espectacular y tendras una pagina personalizada y monitoriada, con base de datos como las grandes ligas, asi que no se diga mas dejame tu telefono o llamame al 3022735255 y empezemos pues `}
         }
       }
+
+      function respuestaPrimera(){
+        c=0;
+         
+         response = {"text": `Perfecto, me parece interesante, te parece bien si te llamo y me cuentas un poco mas para entender mejor tu idea y empezar a trabajar en tú proyecto `}
+       
+     }
       
   
       if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
@@ -233,6 +233,10 @@ app.post('/webhook', (req, res) => {
 
       if (b){
         siga();
+      }
+
+      if (c){
+        respuestaPrimera();
       }
   
       if (mensajeMinuscula.includes("mal") || mensajeMinuscula.includes("ahi vamos")){
