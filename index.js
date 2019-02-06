@@ -207,12 +207,11 @@ app.post('/webhook', (req, res) => {
         }
       }
 
-      function respuestaPrimera(){
-          
-
-                
+      function respuestaPrimera(){  
+        ca=0;
+        console.log('probando funcion');      
          response = {"text": `Perfecto, me parece interesante, te parece bien si te llamo y me cuentas un poco mas para entender mejor tu idea y empezar a trabajar en tú proyecto ${ca}`}; 
-         ca=0;
+         
        
      }
       
