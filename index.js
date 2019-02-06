@@ -154,6 +154,9 @@ app.post('/webhook', (req, res) => {
         response = {"text": `Hola como estas ? :)`}
       }
 
+      if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?"){
+        response = {"text": `Hola perfecto,como quieres tu aplicación,para que area la necesitas?:)`}
+      }
 
 
       if (mensajeMinuscula.includes("buenos dias") || mensajeMinuscula.includes("buenos días ")|| mensajeMinuscula.includes("buen día ")){
@@ -225,7 +228,7 @@ app.post('/webhook', (req, res) => {
      
   
       if (mensajeMinuscula.includes("pagina") || mensajeMinuscula.includes("web")){
-        response = {"text": `Bien perfecto, Desarrollamos la pagina web personal o comercial, Cuentame mas al respecto? mi numero es 3022735255`}
+        response = {"text": `Bien perfecto, ¿Tienes un número de teléfono en el que te podamos contactar?`}
       }
 
       if (mensajeMinuscula.includes("mierda") || mensajeMinuscula.includes("pendejo") || mensajeMinuscula.includes("estupido") || mensajeMinuscula.includes("marica")|| mensajeMinuscula.includes("papanatas")|| mensajeMinuscula.includes("torombolo")){
