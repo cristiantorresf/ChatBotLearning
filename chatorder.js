@@ -1,7 +1,10 @@
+
+
 module.exports = {
 
    principal : function (Message,PSID){
-   
+
+         
       // mira si el mensaje contiene texto
       if (Message.text){
          let mensajeMinuscula= Message.text.toLowerCase(); 
@@ -177,8 +180,7 @@ module.exports = {
           }
        }
    
-       // Envie el mensaje respuesta jaja no se le olvide enviar 
-       callSendAPI(PSID,response);
+      
       
    }
 
