@@ -193,7 +193,7 @@ app.post('/webhook', (req, res) => {
   
           Porque queremos brindarte una asesoria personalizada :)`};
           a=1;
-          atemp = response;
+          atemp = mensajeMinuscula;
           resolve();
           }          
           
