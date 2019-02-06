@@ -121,6 +121,7 @@ app.post('/webhook', (req, res) => {
  // Desgraciadamente todo corre asincrono y no secuencial por eso jode el orden 
  // esta variable guarda si ya se disparo el orden, lo hice anterior pero chimbero  
  let YaOcurrioAsincrono = false;
+ let no=false;
  
  
  function handleMessage(PSID,Message){
@@ -185,7 +186,7 @@ app.post('/webhook', (req, res) => {
       if (no){
         YaOcurrioAsincrono= false;
       }
-      let no=false;
+      
       async function a (){
         if (YaOcurrioAsincrono){
         
