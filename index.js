@@ -168,6 +168,10 @@ app.post('/webhook', (req, res) => {
       response = {"text": `Hola como estas ? :)`}
     }
 
+    if (mensajeMinuscula === "bien y tu"){
+      response = {"text": `Yo de maravilla, soy un bot recien creado y contento de interactuar con los humanos terricolas :)`}
+    }
+
     function EnvieRespuesta (responseObjeto){
       response = responseObjeto;
       return true;
