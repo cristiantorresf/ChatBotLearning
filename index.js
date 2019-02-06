@@ -117,9 +117,7 @@ app.post('/webhook', (req, res) => {
  }
 
  //matematica basica para anidaciones
- let a=0;
- let b=0;
- let c=0;
+
  // Desgraciadamente todo corre asincrono y no secuencial por eso jode el orden 
  // esta variable guarda si ya se disparo el orden, lo hice anterior pero chimbero  
  let YaOcurrioAsincrono = false;
@@ -144,6 +142,9 @@ app.post('/webhook', (req, res) => {
  
  function handleMessage(PSID,Message){
   let response;
+  let a=0;
+  let b=0;
+  let c=0;
   OrdenChat.principal(Message,PSID);
 
  
