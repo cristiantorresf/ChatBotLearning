@@ -136,7 +136,7 @@ app.post('/webhook', (req, res) => {
     json: request_body2 
    }
 
-   return rp(options);
+   rp(options);
    
   }
 
@@ -267,9 +267,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
   
     
 
-  
-    // asincrona function
-    personalizada().then(()=>{
+
 
       b="anidacion";  
       let responseF = {"text":":)"};  
