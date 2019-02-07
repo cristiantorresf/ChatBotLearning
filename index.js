@@ -269,8 +269,8 @@ tienes un numero de telefono para contactarte?
 Porque queremos brindarte una asesoria personalizada :)`};
       control=1;
       temporal=mensajeMinuscula;
-     
-      
+      control=1;
+      control=1;
       callSendApiAsync(PSID,responseA);
 
      
