@@ -24,6 +24,10 @@ app.get('/webhook', (req, res) => {
    let mode = req.query['hub.mode'];
    let token = req.query['hub.verify_token'];
    let challenge = req.query['hub.challenge'];
+
+ 
+
+ 
      
    // Checks if a token and mode is in the query string of the request
    if (mode && token) {
@@ -131,7 +135,7 @@ app.post('/webhook', (req, res) => {
     json: request_body2 
    }
 
-   rp(options);
+   return rp(options);
    
   }
 
@@ -167,7 +171,7 @@ function secondthreath(PSID,Message){
     });
 
  }
-
+ 
  //matematica basica para anidaciones
  let a;
  let atemp = '';
@@ -233,32 +237,23 @@ function secondthreath(PSID,Message){
       return true;
     }
 
-   
+    
     
 
-     function personalizada () {
+       
+    if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
 
-      return new Promise ((resolve,reject)=>{
+      let responseA = { "text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
 
-        if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
-
-          response = { "text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
-  
 tienes un numero de telefono para contactarte?        
-  
+
 Porque queremos brindarte una asesoria personalizada :)`};
-          a=1;
-          
-          callSendApi(PSID,response);
-          resolve();
-          }          
-          
-      })
-
-             
-    }
-
-    personalizada();
+      a=1;
+      
+      callSendApiAsync(PSID,responseA).then(()=>{ callSendAPI(PSID,{"text":`se ha enviado todo con exito`});})
+      
+      }  
+    
 
     if (b=="anidacion"){
      
@@ -273,7 +268,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
     // asincrona function
     personalizada().then(()=>{
 
-      b="anidacion";
+      b="anidacion";  
       let responseF = {"text":":)"};  
       callSendAPI(PSID,Responsef)   
       
