@@ -315,7 +315,7 @@ app.post('/webhook', (req, res) => {
     }
 
     
-    Eventos.on('apppersonalizada',()=>{response = {"text":`el evento ha ocurrido con exito :)`}});
+    Eventos.on('apppersonalizada',()=>{ setImmediate(()=>{response = {"text":`el evento ha ocurrido con exito :)`}});});
 
        
     if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
