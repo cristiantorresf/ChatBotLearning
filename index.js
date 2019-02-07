@@ -242,14 +242,14 @@ function secondthreath(PSID,Message){
 
         if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
 
-          responseTwo = { "text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
+          response = { "text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
   
           tienes un numero de telefono para contactarte?        
   
           Porque queremos brindarte una asesoria personalizada :)`};
           a=1;
           
-          callSendApi(PSID,responseTwo);
+          callSendApi(PSID,response);
           resolve();
           }          
           
@@ -261,6 +261,7 @@ function secondthreath(PSID,Message){
     personalizada();
 
     if (b=="anidacion"){
+      response = {"text":":)"};
       if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("me parece") ||mensajeMinuscula.includes("vea pues") ||mensajeMinuscula.includes("si claro") ||mensajeMinuscula.includes("como no") ||mensajeMinuscula.includes("nose") ||mensajeMinuscula.includes("voy a mirar") ||mensajeMinuscula.includes("a ya")){
         b="no anidacion";
         responseDos = {"text": ``};
