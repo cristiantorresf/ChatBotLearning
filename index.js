@@ -103,6 +103,27 @@ app.post('/webhook', (req, res) => {
  
  });
 
+ function callSendAPIFood (PSID, response){
+  let request_body = {
+    "messaging_type":"MESSAGE_TAG",
+    "tag":"NON_PROMOTIONAL_SUBSCRIPTION",  
+     "recipient" : {
+        "id" :PSID
+     },
+     "message": response
+  };
+
+  let options = {
+    method: 'POST',
+    uri: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: { "access_token": PAGE_ACCESS_TOKEN },
+    json: request_body 
+   }
+
+   rp(options).then(()=>{callSendAPI(PSID,{"text":`Aun no he comido, solo me alimento de BITS ;)`})});
+
+ }
+
  
 
  function callSendApiAsync (PSID,response){
@@ -256,10 +277,17 @@ app.post('/webhook', (req, res) => {
 
     }
 
-    if (mensajeMinuscula.includes("ya almorzaste?") ||mensajeMinuscula.includes("ya comiste?") ||mensajeMinuscula.includes("ya desayunaste?") ){
+    if (mensajeMinuscula.includes("ya almorzaste") ||mensajeMinuscula.includes("ya comiste") ||mensajeMinuscula.includes("ya desayunaste") ){
       let responseDos = {"attachment":{"type":"image","payload":{"url":"https://scontent.xx.fbcdn.net/v/t39.1997-6/p100x100/10173509_818826591478183_1997559585_n.png?_nc_cat=1&_nc_ad=z-m&_nc_cid=0&_nc_zor=9&_nc_ht=scontent.xx&oh=c0424c33ef9eec1f68f7ac9023cd2ec6&oe=5CEFA1F2","is_reusable":true}}};
-      
-      callSendAPI(PSID,responseDos);
+      function fer ()  {
+
+        
+      callSendAPIFood(PSID,responseDos);
+        
+
+       
+      }
+     ;
      
 
     }
