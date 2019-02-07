@@ -249,10 +249,18 @@ app.post('/webhook', (req, res) => {
 
     }
 
-    if (mensajeMinuscula.includes("ya almorzaste?") ||mensajeMinuscula.includes("ya almorzaste?") ||mensajeMinuscula.includes("ya almorzaste?") ){
+    if (mensajeMinuscula.includes("donde estas?") || mensajeMinuscula.includes("de donde eres?") ||mensajeMinuscula.includes("donde te encuentras?") ){
+      
+      let responseDos = {"text": `:) Vivo dentro la nube, soy un bot volador`};
+      callSendAPI(PSID,responseDos);
+
+    }
+
+    if (mensajeMinuscula.includes("ya almorzaste?") ||mensajeMinuscula.includes("ya comiste?") ||mensajeMinuscula.includes("ya desayunaste?") ){
       let responseDos = {"attachment":{"type":"image","payload":{"url":"https://scontent.xx.fbcdn.net/v/t39.1997-6/p100x100/10173509_818826591478183_1997559585_n.png?_nc_cat=1&_nc_ad=z-m&_nc_cid=0&_nc_zor=9&_nc_ht=scontent.xx&oh=c0424c33ef9eec1f68f7ac9023cd2ec6&oe=5CEFA1F2","is_reusable":true}}};
 
       callSendAPI(PSID,responseDos);
+      callSendApiAsync(PSID,{"text":`Aun no, tengo mucha hambre`});
 
     }
 
