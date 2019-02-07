@@ -268,6 +268,7 @@ tienes un numero de telefono para contactarte?
 
 Porque queremos brindarte una asesoria personalizada :)`};
       control=1;
+     
       
       callSendApiAsync(PSID,responseA);
       
@@ -275,7 +276,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
       
       
 
-      if (mensajeMinuscula !="Necesito una App personalizada. Me pueden llamar?".toLowerCase() && control==1 ){
+      if (mensajeMinuscula != mensajeMinuscula.includes("Necesito una App personalizada. Me pueden llamar?".toLowerCase()) || control==1 || mensajeMinuscula.includes("la necesito para") || mensajeMinuscula.includes("es para un ")){
         control = 0;
         let responseA = {"text":`OK control es igual a 1 ${mensajeMinuscula} `};
         control = 0;
