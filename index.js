@@ -274,7 +274,8 @@ Porque queremos brindarte una asesoria personalizada :)`};
       } 
       
       if (control ===1 ){
-        let responseA = {"text":`OK control es igual a 1 `};
+        
+        let responseA = {"text":`OK control es igual a 1 ${mensajeMinuscula} `};
         control = 0;
         callSendApiAsync(PSID,responseA);
 
