@@ -126,7 +126,7 @@ app.post('/webhook', (req, res) => {
    
 
    rp(options).then((a)=>{
-    callSendAPI(PSID,{"text":`who are you? I am ${a}`});    
+    callSendAPI(PSID,{"text":`who are you? I am ${JSON.stringify(a)}`});    
     Eventos.emit('apppersonalizada');
     console.log('HEMOS RECIBIDO APP PERSONALIZDA Y ENVIADO PROBANDO ANIDACIONES');
     
