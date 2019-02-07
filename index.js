@@ -261,17 +261,26 @@ app.post('/webhook', (req, res) => {
 
        
     if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
+      control=1;
+      temporal=mensajeMinuscula;
 
       let responseA = { "text": `Hola perfecto, claro que si te podemos llamar!, Como quieres tu aplicación, para que area la necesitas? :)  
 
 tienes un numero de telefono para contactarte?        
 
 Porque queremos brindarte una asesoria personalizada :)`};
-      control=1;
-      temporal=mensajeMinuscula;
-      control=1;
-      control=1;
-      callSendApiAsync(PSID,responseA);
+     
+      function controle (){
+        return new Promise ((resolve,reject)=>{
+          callSendApiAsync(PSID,responseA);
+          resolve()
+        })
+      }
+
+      controle().then(()=>{
+        control=1;
+      })
+      
 
      
       
