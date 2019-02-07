@@ -188,7 +188,7 @@ app.post('/webhook', (req, res) => {
    console.log("cuarto");
  }
  
- 
+ let temporal;
  function handleMessage(PSID,Message){
   let response;
   let responseTwo;
@@ -268,21 +268,26 @@ tienes un numero de telefono para contactarte?
 
 Porque queremos brindarte una asesoria personalizada :)`};
       control=1;
+      temporal=mensajeMinuscula;
      
       
       callSendApiAsync(PSID,responseA);
+
+     
       
       } 
-      
-      
 
-      if ( !mensajeMinuscula.includes("necesito una app personalizada. me pueden llamar?") && control==1){
+      if ( temporal != mensajeMinuscula && control==1){
         
-        let responseA = {"text":`OK control es igual a 1 ${mensajeMinuscula} `};
+        let responseA = {"text":`OK control es igual a ${control} msj=  ${mensajeMinuscula} `};
         
         callSendApiAsync(PSID,responseA);
         control = 0;
       }
+      
+      
+
+    
     
        
     
