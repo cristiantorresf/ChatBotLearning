@@ -274,13 +274,17 @@ Porque queremos brindarte una asesoria personalizada :)`};
       } 
       
       if (control ===1 ){
+
+        callSendApiAsync(PSID,{"text":`Estoy dentro del ciclo de if control ===1 y el msj recibido es ${mensajeMinuscula}`});
         
         if (mensajeMinuscula !="Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
-        
-        let responseA = {"text":`OK control es igual a 1 ${mensajeMinuscula} `};
-        
-        callSendApiAsync(PSID,responseA);}
         control = 0;
+        let responseA = {"text":`OK control es igual a 1 ${mensajeMinuscula} `};
+        control = 0;
+        callSendApiAsync(PSID,responseA);
+        control = 0;
+      }
+        
 
       }
     
