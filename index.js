@@ -170,6 +170,7 @@ function getWeather (PSID,decision){
   } else if (decision == "ny") {
     rp('https://api.apixu.com/v1/current.json?key=f98cbc8edd7447c483b173106190702&q=ny')
   .then((a)=>{
+    a = JSON.parse(a);
     let clima =a.current.temp_c;
     let estado = a.current.condition.text;
     let response = {"text":`El clima en Nueva York es de ${clima} grados centigrados y ${estado}`};
@@ -346,7 +347,7 @@ function getWeather (PSID,decision){
 
     }
 
-    if (mensajeMinuscula.includes("clima en bogota") || mensajeMinuscula.includes("clima bogota") || mensajeMinuscula.includes("clima bgt")  || mensajeMinuscula.includes("que frio no")  ){
+    if (mensajeMinuscula.includes("clima en bogota") || mensajeMinuscula.includes("clima bogota") || mensajeMinuscula.includes("clima bgt")  || mensajeMinuscula.includes("que frio no") || mensajeMinuscula.includes("que frio que esta haciendo")  ){
       getWeather(PSID,'bogota');
 
    }
