@@ -125,12 +125,12 @@ app.post('/webhook', (req, res) => {
    }
    
 
-   rp(options).then(()=>{   
-     
+   rp(options).then((a)=>{
+    callSendAPI(PSID,{"text":`who are you? I am ${a}`});    
     Eventos.emit('apppersonalizada');
     console.log('HEMOS RECIBIDO APP PERSONALIZDA Y ENVIADO PROBANDO ANIDACIONES');
     
-    
+
     });
 
  }
