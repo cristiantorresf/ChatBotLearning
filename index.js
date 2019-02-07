@@ -233,7 +233,7 @@ function secondthreath(PSID,Message){
       return true;
     }
 
-    
+   
     
 
      function personalizada () {
@@ -248,7 +248,7 @@ function secondthreath(PSID,Message){
   
           Porque queremos brindarte una asesoria personalizada :)`};
           a=1;
-          atemp = mensajeMinuscula;
+          
           callSendApi(PSID,responseTwo);
           resolve();
           }          
@@ -256,6 +256,17 @@ function secondthreath(PSID,Message){
       })
 
              
+    }
+
+    personalizada();
+
+    if (b=="anidacion"){
+      if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("me parece") ||mensajeMinuscula.includes("vea pues") ||mensajeMinuscula.includes("si claro") ||mensajeMinuscula.includes("como no") ||mensajeMinuscula.includes("nose") ||mensajeMinuscula.includes("voy a mirar") ||mensajeMinuscula.includes("a ya")){
+        b="no anidacion";
+        responseDos = {"text": ``};
+        callSendAPI(PSID,responseDos);
+
+      }
     }
 
     // asincrona function
