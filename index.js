@@ -271,7 +271,14 @@ Porque queremos brindarte una asesoria personalizada :)`};
       
       callSendApiAsync(PSID,responseA);
       
-      }  
+      } 
+      
+      if (control ===1 ){
+        let responseA = {"text":`OK control es igual a 1 `};
+        control = 0;
+        callSendApiAsync(PSID,responseA);
+
+      }
     
        
     
