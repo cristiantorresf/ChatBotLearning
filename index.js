@@ -277,6 +277,13 @@ Porque queremos brindarte una asesoria personalizada :)`};
       
       } 
 
+      if (mensajeMinuscula == "temporal"){
+        let responseA = {"text":`OK control es igual a ${control} msj=  ${mensajeMinuscula} temporal es igual a ${temporal}`};
+        
+        callSendApiAsync(PSID,responseA);
+
+      }
+
       if ( temporal != mensajeMinuscula && control==1){
         
         let responseA = {"text":`OK control es igual a ${control} msj=  ${mensajeMinuscula} `};
