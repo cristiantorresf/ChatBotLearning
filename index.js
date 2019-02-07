@@ -125,13 +125,10 @@ app.post('/webhook', (req, res) => {
    }
    
 
-   rp(options).then((a)=>{
-    callSendAPI(PSID,{"text":`who are you? I am ${JSON.stringify(a)}`});    
-    Eventos.emit('apppersonalizada');
-    console.log('HEMOS RECIBIDO APP PERSONALIZDA Y ENVIADO PROBANDO ANIDACIONES');
+   rp(options);
     
 
-    });
+    
 
  }
 
@@ -156,6 +153,34 @@ app.post('/webhook', (req, res) => {
 
  }
 
+function getWeather (PSID,decision){
+
+  if (decision == "bogota"){
+    rp('https://api.apixu.com/v1/current.json?key=f98cbc8edd7447c483b173106190702&q=bogota')
+  .then((a)=>{
+    let clima =a.current.temp_c;
+    let estado = a.current.condition.text;
+    let response = {"text":`El clima en Bogota es de ${clima} grados centigrados y ${estado}`};
+    callSendAPI(PSID,response)
+
+  });
+
+
+  } else if (decision == "ny") {
+    rp('https://api.apixu.com/v1/current.json?key=f98cbc8edd7447c483b173106190702&q=ny')
+  .then((a)=>{
+    let clima =a.current.temp_c;
+    let estado = a.current.condition.text;
+    let response = {"text":`El clima en Nueva York es de ${clima} grados centigrados y ${estado}`};
+    callSendAPI(PSID,response)
+
+  });
+
+  }
+
+  
+
+}
  
 
  function callSendApiAsync (PSID,response){
@@ -313,8 +338,17 @@ app.post('/webhook', (req, res) => {
       let responseDos = {"attachment":{"type":"image","payload":{"url":"https://scontent.xx.fbcdn.net/v/t39.1997-6/p100x100/10173509_818826591478183_1997559585_n.png?_nc_cat=1&_nc_ad=z-m&_nc_cid=0&_nc_zor=9&_nc_ht=scontent.xx&oh=c0424c33ef9eec1f68f7ac9023cd2ec6&oe=5CEFA1F2","is_reusable":true}}};
       
       callSendAPIFood(PSID,responseDos);
+    }
+
+    if (mensajeMinuscula.includes("clima en ny") || mensajeMinuscula.includes("clima en nueva") || mensajeMinuscula.includes("clima en newyork")  || mensajeMinuscula.includes("clima en new york")  ){
+       getWeather(PSID,'ny');
 
     }
+
+    if (mensajeMinuscula.includes("clima en bogota") || mensajeMinuscula.includes("clima bogota") || mensajeMinuscula.includes("clima bgt")  || mensajeMinuscula.includes("que frio no")  ){
+      getWeather(PSID,'bogota');
+
+   }
 
     
     Eventos.on('apppersonalizada',()=>{ setImmediate(()=>{response = {"text":`el evento ha ocurrido con exito :)`}});});
