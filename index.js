@@ -286,7 +286,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
 
       if ( temporal != mensajeMinuscula && control==1){
         
-        let responseA = {"text":`OK control es igual a ${control} msj=  ${mensajeMinuscula} `};
+        let responseA = {" esto deberia ocurrir text":`OK control es igual a ${control} msj=  ${mensajeMinuscula} `};
         
         callSendApiAsync(PSID,responseA);
         control = 0;
