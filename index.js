@@ -140,14 +140,7 @@ app.post('/webhook', (req, res) => {
    
   }
 
-function secondthreath(PSID,Message){
-  
-  if (Message.length > 2){
-    let mensajito = {"text":`Claro que si cuentame mas de como te podriamos colaborar`};
-    callSendAPI(PSID,Message);
-  }
 
-}
 
  function callSendAPI (PSID,response){
     // construye el cuerpo del mensaje en JSON
@@ -269,13 +262,8 @@ Porque queremos brindarte una asesoria personalizada :)`};
 
 
 
-      b="anidacion";  
-      let responseF = {"text":":)"};  
-      callSendAPI(PSID,Responsef)   
       
-    });
-    
-    
+   
 
   
     
