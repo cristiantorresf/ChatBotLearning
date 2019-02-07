@@ -328,6 +328,7 @@ tienes un numero de telefono para contactarte?
 
 Porque queremos brindarte una asesoria personalizada :)`};
       // repita otra vez 
+      Eventos.emit('apppersonalizada');
       callSendApiDecision(PSID,responseA,mensajeMinuscula,temporal);
 
       } 
