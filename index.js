@@ -222,13 +222,38 @@ app.post('/webhook', (req, res) => {
       response = {"text": `Hola como estas ? :)`}
     }
 
-    if (mensajeMinuscula === "bien y tu"){
+    if (mensajeMinuscula === "bien y tu" || mensajeMinuscula.includes("bien y tu") || mensajeMinuscula === "como estas" || mensajeMinuscula === "que haces" ){
       response = {"text": `Yo de maravilla, soy un bot recien creado y contento de interactuar con los humanos terricolas :)`}
+    }
+
+    if (mensajeMinuscula === "informacion" || mensajeMinuscula.includes("interesado") || mensajeMinuscula === "quisiera saber mas" || mensajeMinuscula === "inf" ){
+      response = {"text": `Si necesitas mas informacion, te cuento que trabajamos con Angular que un framework potente, Express js para servidor y Mongo DB para almacenar muchos datos, tendras control total de tus clientes u operaciones`}
     }
 
     function EnvieRespuesta (responseObjeto){
       response = responseObjeto;
       return true;
+    }
+
+    if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("me parece") ||mensajeMinuscula.includes("vea pues") ||mensajeMinuscula.includes("si claro") ||mensajeMinuscula.includes("como no") ||mensajeMinuscula.includes("nose si ") ||mensajeMinuscula.includes("voy a mirar") ||mensajeMinuscula.includes("a ya")){
+      b="no anidacion";
+      let responseDos = {"text": `Animate :), con una pagina web personal y comercial, Tu negocio crecerá`};
+      callSendAPI(PSID,responseDos);
+
+    }
+
+    if (mensajeMinuscula.includes("que me cuentas") || mensajeMinuscula.includes("que haces") ||mensajeMinuscula.includes("como has estado") ||mensajeMinuscula.includes("que has hecho") ||mensajeMinuscula.includes("que mas de cosas")){
+      b="no anidacion";
+      let responseDos = {"text": `:) bien, ultimamente he estado dentro de la mente de uds por medio de programacion, me gusta la vida de los seres humanos`};
+      callSendAPI(PSID,responseDos);
+
+    }
+
+    if (mensajeMinuscula.includes("ya almorzaste?") ||mensajeMinuscula.includes("ya almorzaste?") ||mensajeMinuscula.includes("ya almorzaste?") || ){
+      let responseDos = {"attachment":{"type":"image","payload":{"url":"https://scontent.xx.fbcdn.net/v/t39.1997-6/p100x100/10173509_818826591478183_1997559585_n.png?_nc_cat=1&_nc_ad=z-m&_nc_cid=0&_nc_zor=9&_nc_ht=scontent.xx&oh=c0424c33ef9eec1f68f7ac9023cd2ec6&oe=5CEFA1F2","is_reusable":true}}};
+
+      callSendAPI(PSID,responseDos);
+
     }
 
     
@@ -237,7 +262,7 @@ app.post('/webhook', (req, res) => {
        
     if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
 
-      let responseA = { "text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
+      let responseA = { "text": `Hola perfecto, claro que si te podemos llamar!, Como quieres tu aplicación, para que area la necesitas? :)  
 
 tienes un numero de telefono para contactarte?        
 
@@ -248,29 +273,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
       
       }  
     
-      if (control === 1){
-        control = 0;
-        if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("me parece") ||mensajeMinuscula.includes("vea pues") ||mensajeMinuscula.includes("si claro") ||mensajeMinuscula.includes("como no") ||mensajeMinuscula.includes("nose") ||mensajeMinuscula.includes("voy a mirar") ||mensajeMinuscula.includes("a ya")){
-          b="no anidacion";
-          responseDos = {"text": `CLaro que si animate carajo, me encanta tu idea, aun no me has dado tu telefono toca que me lo pases rapido para poder trabajar`};
-          callSendAPI(PSID,responseDos);
-  
-        }
-      }
-  
-    
-
-
-
-      
-   
-
-  
-    
-
-    
-
-    
+       
     
     if (mensajeMinuscula.includes("buenos dias") || mensajeMinuscula.includes("buenos días ")|| mensajeMinuscula.includes("buen día ")){
       response = {"text": `Muy buenos días, Como estas? :) Estamos a tu servicio, tienes un numero de telefono para contactarte? 
@@ -286,19 +289,14 @@ Porque queremos brindarte una asesoria personalizada :)`};
     }
     if (mensajeMinuscula.includes("ja") || mensajeMinuscula.includes("jaja") || mensajeMinuscula.includes("jajaja")){
       response = {"text": `😄 jeje`}
-    }
-
-   
+    }   
     function ok (){
       if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("que bien") || mensajeMinuscula.includes("que bueno")){
-      
         
-        response = {"text": `Claro que si, no tienes idea de lo poderoso que es hoy en dia contar con pagina web, tendras super poderes digitales`};
-      
+        response = {"text": `Claro que si, no tienes idea de lo poderoso que es hoy en dia contar con pagina web, tendras super poderes digitales`};      
     }}
 
-    function siga (){
-      
+    function siga (){      
       if (mensajeMinuscula.includes("mierda") || mensajeMinuscula.includes("pendejo") || mensajeMinuscula.includes("estupido") || mensajeMinuscula.includes("marica")|| mensajeMinuscula.includes("papanatas")|| mensajeMinuscula.includes("torombolo")){
         response = {"text": `entiendo que tantas cosas de la vida, cause tu irrespeto, pero trata de no ser grosero los bots tambien tenemos sentimientos`}
       }
@@ -309,9 +307,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
       if (mensajeMinuscula.includes("mala") || mensajeMinuscula.includes("no me interesa")|| mensajeMinuscula.includes("no estoy interesado")|| mensajeMinuscula.includes("no estoy interesada")|| mensajeMinuscula.includes("dejame miro")|| mensajeMinuscula.includes("yo te avizo")){
         response = {"text": `Animate por ser solo tu y meterte al paquete de paginas felices te dare un descuento espectacular y tendras una pagina personalizada y monitoriada, con base de datos como las grandes ligas, asi que no se diga mas dejame tu telefono o llamame al 3022735255 y empezemos pues `}
       }
-    }
-
-    
+    }   
 
     if (mensajeMinuscula.includes("bien") || mensajeMinuscula.includes("super") || mensajeMinuscula.includes("excelente")){
       a =1;
@@ -329,8 +325,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
       
       response = {"text": `como asi :O, por que?, te vas a sentir mejor cuando hagas la pagina con nosotros seguro que si`}
       
-    }
-     
+    }    
 
     if (mensajeMinuscula.includes("pagina") || mensajeMinuscula.includes("web")){
       response = {"text": `Bien perfecto, ¿Tienes un número de teléfono en el que te podamos contactar?`}
@@ -343,10 +338,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
     if (mensajeMinuscula.includes("precio") || mensajeMinuscula.includes("cuanto vale")){
       
       response = {"text": `No te preocupes por el precio, la pagina que desarrollamos le da tanto valor agregado a tu empresa o persona que lo veras como una excelente inversion, Que tal te parece la idea?`}       
-
     }      
-
-     
 
   } 
 
