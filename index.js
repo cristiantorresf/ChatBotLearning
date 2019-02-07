@@ -158,6 +158,7 @@ function getWeather (PSID,decision){
   if (decision == "bogota"){
     rp('https://api.apixu.com/v1/current.json?key=f98cbc8edd7447c483b173106190702&q=bogota')
   .then((a)=>{
+    console.log(JSON.stringify(a));
     let clima =a.current.temp_c;
     let estado = a.current.condition.text;
     let response = {"text":`El clima en Bogota es de ${clima} grados centigrados y ${estado}`};
