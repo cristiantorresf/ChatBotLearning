@@ -278,6 +278,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
       } 
 
       if (mensajeMinuscula == "temporal"){
+        control=1;
         let responseA = {"text":`OK control es igual a ${control} msj=  ${mensajeMinuscula} temporal es igual a ${temporal}`};
         
         callSendApiAsync(PSID,responseA);
