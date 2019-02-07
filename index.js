@@ -276,7 +276,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
       
       
 
-      if (mensajeMinuscula != mensajeMinuscula.includes("Necesito una App personalizada. Me pueden llamar?") && control==1){
+      if ( !mensajeMinuscula.includes("necesito una app personalizada. me pueden llamar?") && control==1){
         
         let responseA = {"text":`OK control es igual a 1 ${mensajeMinuscula} `};
         
