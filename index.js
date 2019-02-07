@@ -275,9 +275,12 @@ Porque queremos brindarte una asesoria personalizada :)`};
       
       if (control ===1 ){
         
+        if (mensajeMinuscula !="Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
+        
         let responseA = {"text":`OK control es igual a 1 ${mensajeMinuscula} `};
+        
+        callSendApiAsync(PSID,responseA);}
         control = 0;
-        callSendApiAsync(PSID,responseA);
 
       }
     
