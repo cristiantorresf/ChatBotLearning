@@ -103,6 +103,27 @@ app.post('/webhook', (req, res) => {
  
  });
 
+ function callSendApiDecision (PSID,response,mensaje){
+  let msj = mensaje;
+  let request_body = {
+    "messaging_type":"MESSAGE_TAG",
+    "tag":"NON_PROMOTIONAL_SUBSCRIPTION",  
+     "recipient" : {
+        "id" :PSID
+     },
+     "message": response
+  };
+  let options = {
+    method: 'POST',
+    uri: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: { "access_token": PAGE_ACCESS_TOKEN },
+    json: request_body 
+   }
+
+   rp(options).then(()=>{callSendAPI(PSID,{"text":`this is going next`})})
+
+ }
+
  function callSendAPIFood (PSID, response){
   let request_body = {
     "messaging_type":"MESSAGE_TAG",
@@ -298,17 +319,7 @@ tienes un numero de telefono para contactarte?
 
 Porque queremos brindarte una asesoria personalizada :)`};
      
-      function controle (){
-        return new Promise ((resolve,reject)=>{
-          
-          resolve(callSendApiAsync(PSID,responseA));
-        })
-      }
-
-      controle().then((a)=>{
-        if (a===true){control=1;}
-        
-      })
+   callSendApiDecision(PSID,responseA,mensajeMinuscula); 
       
 
      
