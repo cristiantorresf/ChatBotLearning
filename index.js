@@ -244,9 +244,9 @@ function secondthreath(PSID,Message){
 
           response = { "text": `Hola perfecto,como quieres tu aplicación, para que area la necesitas? :)  
   
-          tienes un numero de telefono para contactarte?        
+tienes un numero de telefono para contactarte?        
   
-          Porque queremos brindarte una asesoria personalizada :)`};
+Porque queremos brindarte una asesoria personalizada :)`};
           a=1;
           
           callSendApi(PSID,response);
