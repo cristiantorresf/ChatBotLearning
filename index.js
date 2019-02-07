@@ -47,6 +47,7 @@ app.get('/webhook', (req, res) => {
  });
 
  let b=0;
+ let control;
  // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
 
@@ -248,23 +249,25 @@ function secondthreath(PSID,Message){
 tienes un numero de telefono para contactarte?        
 
 Porque queremos brindarte una asesoria personalizada :)`};
-      a=1;
+      control=1;
       
-      callSendApiAsync(PSID,responseA).then(()=>{ callSendAPI(PSID,{"text":`se ha enviado todo con exito`});})
+      callSendApiAsync(PSID,responseA);
       
       }  
     
-
-    if (b=="anidacion"){
-     
-      if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("me parece") ||mensajeMinuscula.includes("vea pues") ||mensajeMinuscula.includes("si claro") ||mensajeMinuscula.includes("como no") ||mensajeMinuscula.includes("nose") ||mensajeMinuscula.includes("voy a mirar") ||mensajeMinuscula.includes("a ya")){
-        b="no anidacion";
-        responseDos = {"text": `CLaro que si animate carajo, me encanta tu idea, aun no me has dado tu telefono toca que me lo pases rapido para poder trabajar`};
-        callSendAPI(PSID,responseDos);
-
+      if (control === 1){
+        control = 0;
+        if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("me parece") ||mensajeMinuscula.includes("vea pues") ||mensajeMinuscula.includes("si claro") ||mensajeMinuscula.includes("como no") ||mensajeMinuscula.includes("nose") ||mensajeMinuscula.includes("voy a mirar") ||mensajeMinuscula.includes("a ya")){
+          b="no anidacion";
+          responseDos = {"text": `CLaro que si animate carajo, me encanta tu idea, aun no me has dado tu telefono toca que me lo pases rapido para poder trabajar`};
+          callSendAPI(PSID,responseDos);
+  
+        }
       }
-    }
+  
+    
 
+  
     // asincrona function
     personalizada().then(()=>{
 
