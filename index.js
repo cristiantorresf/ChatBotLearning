@@ -8,9 +8,12 @@ const
   
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const request = require('request');
+// Creando Evenntos Propios
+const EventEmitter = require('events');
+class MyEmitter extends EventEmitter {}
 var rp = require('request-promise');
 
-
+const Eventos = new MyEmitter();
 
 app.set('port',process.env.PORT || 1337);
 // Adds support for GET requests to our webhook
@@ -120,13 +123,11 @@ app.post('/webhook', (req, res) => {
     qs: { "access_token": PAGE_ACCESS_TOKEN },
     json: request_body 
    }
+   
 
-   rp(options).then(()=>{
-     if (temp != mensaje){
-       temp = "any";
-      callSendAPI(PSID,{"text":`this is going next`})
-     }
+   rp(options).then(()=>{   
      
+    Eventos.emit('apppersonalizada');
 
     });
 
@@ -314,7 +315,7 @@ app.post('/webhook', (req, res) => {
     }
 
     
-    
+    Eventos.on('apppersonalizada',()=>{response = {"text":`el evento ha ocurrido con exito :)`}});
 
        
     if (mensajeMinuscula === "Necesito una App personalizada. Me pueden llamar?".toLowerCase() ){
@@ -326,13 +327,11 @@ app.post('/webhook', (req, res) => {
 tienes un numero de telefono para contactarte?        
 
 Porque queremos brindarte una asesoria personalizada :)`};
-     
-   callSendApiDecision(PSID,responseA,mensajeMinuscula,temporal); 
-      
+      // repita otra vez 
+      callSendApiDecision(PSID,responseA,mensajeMinuscula,temporal);
 
-     
-      
       } 
+   
 
       if (mensajeMinuscula == "temporal"){
         
@@ -474,11 +473,18 @@ Porque queremos brindarte una asesoria personalizada :)`};
    callSendAPI(PSID,response);
  }
  
+ function main (){
+  console.log(`webhook is listening on port ${app.get('port')}`);
  
+
+
+ 
+  
+ }
 
 
 
 
 // creates express http server
 // Sets server port and logs message on success
-app.listen(app.get('port'), () => console.log(`webhook is listening on port ${app.get('port')}`));
+app.listen(app.get('port'),main);
