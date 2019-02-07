@@ -273,12 +273,13 @@ Porque queremos brindarte una asesoria personalizada :)`};
       function controle (){
         return new Promise ((resolve,reject)=>{
           callSendApiAsync(PSID,responseA);
-          resolve();
+          resolve(true);
         })
       }
 
-      controle().then(()=>{
-        control=1;
+      controle().then((a)=>{
+        if (a===true){control=1;}
+        
       })
       
 
