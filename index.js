@@ -103,8 +103,9 @@ app.post('/webhook', (req, res) => {
  
  });
 
- function callSendApiDecision (PSID,response,mensaje){
+ function callSendApiDecision (PSID,response,mensaje,temp){
   let msj = mensaje;
+
   let request_body = {
     "messaging_type":"MESSAGE_TAG",
     "tag":"NON_PROMOTIONAL_SUBSCRIPTION",  
@@ -120,7 +121,14 @@ app.post('/webhook', (req, res) => {
     json: request_body 
    }
 
-   rp(options).then(()=>{callSendAPI(PSID,{"text":`this is going next`})})
+   rp(options).then(()=>{
+     if (temp != mensaje){
+       temp = "any";
+      callSendAPI(PSID,{"text":`this is going next`})
+     }
+     
+
+    });
 
  }
 
@@ -319,7 +327,7 @@ tienes un numero de telefono para contactarte?
 
 Porque queremos brindarte una asesoria personalizada :)`};
      
-   callSendApiDecision(PSID,responseA,mensajeMinuscula); 
+   callSendApiDecision(PSID,responseA,mensajeMinuscula,temporal); 
       
 
      
