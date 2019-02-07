@@ -264,7 +264,7 @@ function secondthreath(PSID,Message){
      
       if (mensajeMinuscula.includes("ok") || mensajeMinuscula.includes("me parece") ||mensajeMinuscula.includes("vea pues") ||mensajeMinuscula.includes("si claro") ||mensajeMinuscula.includes("como no") ||mensajeMinuscula.includes("nose") ||mensajeMinuscula.includes("voy a mirar") ||mensajeMinuscula.includes("a ya")){
         b="no anidacion";
-        responseDos = {"text": ``};
+        responseDos = {"text": `CLaro que si animate carajo, me encanta tu idea, aun no me has dado tu telefono toca que me lo pases rapido para poder trabajar`};
         callSendAPI(PSID,responseDos);
 
       }
@@ -274,7 +274,8 @@ function secondthreath(PSID,Message){
     personalizada().then(()=>{
 
       b="anidacion";
-      response = {"text":":)"};     
+      let responseF = {"text":":)"};  
+      callSendAPI(PSID,Responsef)   
       
     });
     
