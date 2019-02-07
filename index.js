@@ -272,8 +272,8 @@ Porque queremos brindarte una asesoria personalizada :)`};
      
       function controle (){
         return new Promise ((resolve,reject)=>{
-          callSendApiAsync(PSID,responseA);
-          resolve(true);
+          
+          resolve(callSendApiAsync(PSID,responseA));
         })
       }
 
