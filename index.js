@@ -276,10 +276,10 @@ Porque queremos brindarte una asesoria personalizada :)`};
       
       
 
-      if (mensajeMinuscula != mensajeMinuscula.includes("Necesito una App personalizada. Me pueden llamar?".toLowerCase()) && control==1){
-        control = 0;
+      if (mensajeMinuscula != mensajeMinuscula.includes("Necesito una App personalizada. Me pueden llamar?") && control==1){
+        
         let responseA = {"text":`OK control es igual a 1 ${mensajeMinuscula} `};
-        control = 0;
+        
         callSendApiAsync(PSID,responseA);
         control = 0;
       }
