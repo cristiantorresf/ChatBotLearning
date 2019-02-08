@@ -587,7 +587,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
               "buttons":[
                 {
                   "type":"web_url",
-                  "url":"https://www.bing.com/?scope=news&FORM=Z9LH3",
+                  "url":"https://facebook.com",
                   "title":"View Website"
                 },{
                   "type":"postback",
