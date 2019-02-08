@@ -83,10 +83,6 @@ app.post('/webhook', (req, res) => {
        console.log('""""""""""""""""""""""""""""""""""""');
        console.log(`sender_psid => ${sender_psid}`);
 
-       if (b =="anidacion"){
-         secondthreath(sender_psid,webhook_event.message.text.toLowerCase());
-       }
-
        if (webhook_event.message){
           handleMessage(sender_psid,webhook_event.message);
           
@@ -126,12 +122,7 @@ app.post('/webhook', (req, res) => {
     qs: { "access_token": PAGE_ACCESS_TOKEN },
     json: request_body 
    }
-   
-
    rp(options);
-    
-
-    
 
  }
 
@@ -258,6 +249,7 @@ function getWeather (PSID,decision){
  // esta variable guarda si ya se disparo el orden, lo hice anterior pero chimbero  
  let YaOcurrioAsincrono = false;
  let no=false;
+ 
  function one (){
    console.log("primero");
  }
@@ -293,6 +285,31 @@ function getWeather (PSID,decision){
       }
     // coje el numero de telefono  
     hayNumero(mensajeMinuscula); 
+
+    if (mensajeMinuscula == "tonto"){
+      response = {"test" : `Oye que te pasa no soy ningun tonto`}
+  
+    }
+    if (mensajeMinuscula == "menso"){
+      response = {"test" : `Oye que te pasa no soy ningun menso`}
+  
+    }
+    if (mensajeMinuscula == "bruto"){
+      response = {"test" : `Oye que te pasa no soy ningun bruto`}
+  
+    }
+    if (mensajeMinuscula == "idiota"){
+      response = {"test" : `Oye que te pasa no soy ningun idiota`}
+  
+    }
+    if (mensajeMinuscula == "tarado"){
+      response = {"test" : `Oye que te pasa no soy ningun tarado`}
+  
+    }
+    if (mensajeMinuscula == "tarado"){
+      response = {"test" : `Oye que te pasa no soy ningun tarado`}
+  
+    }
 
     if (Message.text === "Hola"){
       response = {"text": `Buenas como estas :)`}
