@@ -67,6 +67,7 @@ module.exports = (event) => {
     .detectIntent(request)
     .then(responses => {
       const result = responses[0].queryResult;
+      console.log(`debugging ${result.fulfillmentText} typeof ${typeof result.fulfillmentText} stringify ${JSON.stringify(result.fulfillmentText)}`);
       return callSendApiDecision(userId, result.fulfillmentText);
     })
     .catch(err => {
