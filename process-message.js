@@ -6,7 +6,7 @@ const dialogflow = require('dialogflow');
 
 const projectId = 'chatbot-b3c86'; 
 const sessionId = '123456';
-const languageCode = 'en-US';
+const languageCode = 'es';
 
 
 const config = {
