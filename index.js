@@ -249,7 +249,7 @@ function getWeather (PSID,decision){
  // esta variable guarda si ya se disparo el orden, lo hice anterior pero chimbero  
  let YaOcurrioAsincrono = false;
  let no=false;
- 
+
  function one (){
    console.log("primero");
  }
@@ -287,27 +287,27 @@ function getWeather (PSID,decision){
     hayNumero(mensajeMinuscula); 
 
     if (mensajeMinuscula == "tonto"){
-      response = {"test" : `Oye que te pasa no soy ningun tonto`}
+      response = {"text" : `Oye que te pasa no soy ningun tonto`}
   
     }
     if (mensajeMinuscula == "menso"){
-      response = {"test" : `Oye que te pasa no soy ningun menso`}
+      response = {"text" : `Oye que te pasa no soy ningun menso`}
   
     }
     if (mensajeMinuscula == "bruto"){
-      response = {"test" : `Oye que te pasa no soy ningun bruto`}
+      response = {"text" : `Oye que te pasa no soy ningun bruto`}
   
     }
     if (mensajeMinuscula == "idiota"){
-      response = {"test" : `Oye que te pasa no soy ningun idiota`}
+      response = {"text" : `Oye que te pasa no soy ningun idiota`}
   
     }
     if (mensajeMinuscula == "tarado"){
-      response = {"test" : `Oye que te pasa no soy ningun tarado`}
+      response = {"text" : `Oye que te pasa no soy ningun tarado`}
   
     }
     if (mensajeMinuscula == "tarado"){
-      response = {"test" : `Oye que te pasa no soy ningun tarado`}
+      response = {"text" : `Oye que te pasa no soy ningun tarado`}
   
     }
 
