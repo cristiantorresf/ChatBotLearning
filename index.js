@@ -292,6 +292,8 @@ function getWeather (PSID,decision){
       callSendApiAsync(PSID,respuestaNombre);
       }
 
+      let nose = {"text":`Disculpa te llamas ${nombre} ?`}
+      callSendApiAsync(PSID,nose);
 
     function hayNumero (mensaje){
       let regex3 = /\b(\d{10}|\d{3}\s\d{4}\s\d{3}|\d{3}\s\d{7}|\d{3}\s\d{3}\s\d{4})\b/; 
