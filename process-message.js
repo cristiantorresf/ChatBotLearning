@@ -68,7 +68,8 @@ module.exports = (event) => {
     .then(responses => {
       const result = responses[0].queryResult;
       console.log(`debugging ${result.fulfillmentText} typeof ${typeof result.fulfillmentText} stringify ${JSON.stringify(result.fulfillmentText)}`);
-      return callSendApiDecision(userId, result.fulfillmentText);
+      let response = {"text":result.fulfillmentText};
+      return callSendApiDecision(userId,response);
     })
     .catch(err => {
       console.error('ERROR:', err);
