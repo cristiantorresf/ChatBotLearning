@@ -10,6 +10,7 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const request = require('request');
 // Creando Evenntos Propios
 const EventEmitter = require('events');
+const processMessage = require('./process-message');
 class MyEmitter extends EventEmitter {}
 var rp = require('request-promise');
 
@@ -84,7 +85,9 @@ app.post('/webhook', (req, res) => {
        console.log(`sender_psid => ${sender_psid}`);
 
        if (webhook_event.message){
-          handleMessage(sender_psid,webhook_event.message);
+          processMessage(webhook_event);
+          //handleMessage(sender_psid,webhook_event.message);
+
           
           
           console.log('funcion');
@@ -323,7 +326,7 @@ function getWeather (PSID,decision){
     }
 
     if (mensajeMinuscula === "bueno" || mensajeMinuscula.includes("aja") || mensajeMinuscula === "como digas" || mensajeMinuscula === "vea pues " ){
-      response = {"text": `:) :) :) :) oye a proposito si quieres saber que clima esta haciendo en bogota solo escribeme clima en bogota o si quieres saber el clima de nueva york escribe clima en ny`}
+      response = {"text": `:) :) :) :) oye a proposito si quieres saber que clima esta haciendo en bogota solo escribeme ((clima en bogota)) o si quieres saber el clima de nueva york escribe ((clima en ny))`}
     }
 
     if (mensajeMinuscula === "bien y tu" || mensajeMinuscula.includes("bien y tu") || mensajeMinuscula === "como estas" || mensajeMinuscula === "que haces" ){
