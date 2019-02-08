@@ -267,21 +267,31 @@ function getWeather (PSID,decision){
  }
  
  let temporal;
+ let nombre;
 //HANDLE MESSAGE
 
  function handleMessage(PSID,Message){
   let response;
   let responseTwo;
-  let nombre;
+  let respuestaNombre
 
-  response = {"text":`Hola como estas, para conocerte mejor como te gustaria que te llame?, apenas soy un bot y no se tu nombre,`};
+
+
 
  
   if (Message.text){
 
+    
 
     let mensajeMinuscula= Message.text.toLowerCase(); 
      // creando un payload 
+
+     if (nombre === undefined){
+      respuestaNombre = {"text":`Hola como estas, para conocerte mejor como te gustaria que te llame?, apenas soy un bot y no se tu nombre,`};
+      nombre = mensajeMinuscula
+      callSendApiAsync(PSID,Message);
+      }
+
 
     function hayNumero (mensaje){
       let regex3 = /\b(\d{10}|\d{3}\s\d{4}\s\d{3}|\d{3}\s\d{7}|\d{3}\s\d{3}\s\d{4})\b/; 
