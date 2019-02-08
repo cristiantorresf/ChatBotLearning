@@ -85,8 +85,8 @@ app.post('/webhook', (req, res) => {
        console.log(`sender_psid => ${sender_psid}`);
 
        if (webhook_event.message){
-          processMessage(webhook_event);
-          //handleMessage(sender_psid,webhook_event.message);
+          //processMessage(webhook_event);
+          handleMessage(sender_psid,webhook_event.message);
 
           
           
