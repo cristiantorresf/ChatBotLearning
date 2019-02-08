@@ -581,8 +581,8 @@ Porque queremos brindarte una asesoria personalizada :)`};
                 "type": "web_url",
                 "url": "https://bing.com",
                 "messenger_extensions": false,
-                "webview_height_ratio": "tall",
-                "fallback_url": "https://www.bing.com/?scope=images&FORM=Z9LH1/"
+                "webview_height_ratio": "tall"
+                
               },
               "buttons":[
                 {
