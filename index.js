@@ -288,8 +288,8 @@ function getWeather (PSID,decision){
 
      if (nombre === undefined){
       respuestaNombre = {"text":`Hola como estas, para conocerte mejor como te gustaria que te llame?, apenas soy un bot y no se tu nombre,`};
-      nombre = mensajeMinuscula
-      callSendApiAsync(PSID,Message);
+      nombre = mensajeMinuscula;
+      callSendApiAsync(PSID,respuestaNombre);
       }
 
 
