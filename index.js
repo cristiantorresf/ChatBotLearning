@@ -267,9 +267,15 @@ function getWeather (PSID,decision){
  }
  
  let temporal;
+//HANDLE MESSAGE
+
  function handleMessage(PSID,Message){
   let response;
   let responseTwo;
+  let nombre;
+
+  response = {"text":`Hola como estas, para conocerte mejor como te gustaria que te llame?, apenas soy un bot y no se tu nombre,`};
+
  
   if (Message.text){
 
