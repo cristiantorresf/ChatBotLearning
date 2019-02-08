@@ -322,6 +322,10 @@ function getWeather (PSID,decision){
       response = {"text": `Hola como estas ? :)`}
     }
 
+    if (mensajeMinuscula === "bueno" || mensajeMinuscula.includes("aja") || mensajeMinuscula === "como digas" || mensajeMinuscula === "vea pues " ){
+      response = {"text": `:) :) :) :) oye a proposito si quieres saber que clima esta haciendo en bogota solo escribeme clima en bogota o si quieres saber el clima de nueva york escribe clima en ny`}
+    }
+
     if (mensajeMinuscula === "bien y tu" || mensajeMinuscula.includes("bien y tu") || mensajeMinuscula === "como estas" || mensajeMinuscula === "que haces" ){
       response = {"text": `Yo de maravilla, soy un bot recien creado y contento de interactuar con los humanos terricolas :)`}
     }
