@@ -563,39 +563,44 @@ Porque queremos brindarte una asesoria personalizada :)`};
 
  function sendMsgTemplate (PSID){
 
-  const body  = {
+  const body  ={
     "recipient":{
       "id":PSID
-    }, 
-    "message": {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          
-          "elements": [
-            {
-              "title": "Classic T-Shirt Collection",
-              "subtitle": "See all our colors",
-              "image_url": "https://gfnc1kn6pi-flywheel.netdna-ssl.com/wp-content/uploads/2016/08/dog-shades.jpg",          
-              "buttons": [
+    },
+    "message":{
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "elements":[
+             {
+              "title":"Welcome!",
+              "image_url":"http://2.bp.blogspot.com/-IktgdG6tueU/T6ZghoJ2jxI/AAAAAAAAALI/xzp7FGOTaTw/s1600/Funny-animal-picture-of-the-day-06-05-2012.jpg",
+              "subtitle":"We have the right hat for everyone.",
+              "default_action": {
+                "type": "web_url",
+                "url": "https://bing.com",
+                "messenger_extensions": false,
+                "webview_height_ratio": "tall",
+                "fallback_url": "https://www.bing.com/?scope=images&FORM=Z9LH1/"
+              },
+              "buttons":[
                 {
-                  "title": "View",
-                  "type": "web_url",
-                  "url": "https://www.facebook.com/",
-                  "messenger_extensions": true,
-                  "webview_height_ratio": "tall",
-                  "fallback_url": "https://www.bing.com/"            
-                }
-              ]
-            },
-         
+                  "type":"web_url",
+                  "url":"https://www.bing.com/?scope=news&FORM=Z9LH3",
+                  "title":"View Website"
+                },{
+                  "type":"postback",
+                  "title":"Start Chatting",
+                  "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                }              
+              ]      
+            }
           ]
-          
         }
       }
     }
-  }; 	
+  };
   const options = {
   method: 'POST',
   uri: 'https://graph.facebook.com/v2.6/me/messages',
