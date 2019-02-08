@@ -590,14 +590,8 @@ Porque queremos brindarte una asesoria personalizada :)`};
               ]
             },
          
-          ],
-           "buttons": [
-            {
-              "title": "View More",
-              "type": "postback",
-              "payload": "payload"            
-            }
-          ]  
+          ]
+          
         }
       }
     }
