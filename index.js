@@ -582,10 +582,10 @@ Porque queremos brindarte una asesoria personalizada :)`};
                 {
                   "title": "View",
                   "type": "web_url",
-                  "url": "https://www.facebook.com/profile.php?id=100008219257019",
+                  "url": "https://www.facebook.com/",
                   "messenger_extensions": true,
                   "webview_height_ratio": "tall",
-                  "fallback_url": "https://www.facebook.com/Desarrollo-Web-388522938585860/"            
+                  "fallback_url": "https://www.bing.com/"            
                 }
               ]
             },
