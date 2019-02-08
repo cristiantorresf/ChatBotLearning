@@ -292,9 +292,11 @@ function getWeather (PSID,decision){
       callSendApiAsync(PSID,respuestaNombre);
       }
 
-      let nose = {"text":`Disculpa te llamas ${nombre} ?`}
-      callSendApiAsync(PSID,nose);
+      if (mensajeMinuscula == "plantilla"){
+        sendMsgTemplate(PSID);
+      }
 
+ 
     function hayNumero (mensaje){
       let regex3 = /\b(\d{10}|\d{3}\s\d{4}\s\d{3}|\d{3}\s\d{7}|\d{3}\s\d{3}\s\d{4})\b/; 
       let booleano = mensaje.search(regex3);
@@ -542,6 +544,8 @@ Porque queremos brindarte una asesoria personalizada :)`};
 
         
  }
+
+
  function handlePostback(PSID,Postback){
     let response;
     // Get the payload for the postback
@@ -555,6 +559,59 @@ Porque queremos brindarte una asesoria personalizada :)`};
    }
    // mande al API
    callSendAPI(PSID,response);
+ }
+
+ function sendMsgTemplate (PSID){
+
+  const body  = 	{
+	  "recipient":{
+	    "id":PSID
+	  },
+	  "message":{
+	    "attachment":{
+	      "type":"template",
+	      "payload":{
+	        "template_type":"generic",
+	        "elements":[
+	           {
+	            "title":"Welcome!",
+	            "image_url":"https://petersfancybrownhats.com/company_image.png",
+	            "subtitle":"We have the right hat for everyone.",
+	            "default_action": {
+	              "type": "web_url",
+	              "url": "https://petersfancybrownhats.com/view?item=103",
+	              "messenger_extensions": false,
+	              "webview_height_ratio": "tall",
+	              "fallback_url": "https://petersfancybrownhats.com/"
+	            },
+	            "buttons":[
+	              {
+	                "type":"web_url",
+	                "url":"https://petersfancybrownhats.com",
+	                "title":"View Website"
+	              },{
+	                "type":"postback",
+	                "title":"Start Chatting",
+	                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+	              }              
+	            ]      
+	          }
+	        ]
+	      }
+	    }
+	  }
+  }
+  
+  const options = {
+  method: 'POST',
+  uri: 'https://graph.facebook.com/v2.6/me/messages',
+  qs: { "access_token": PAGE_ACCESS_TOKEN },
+  json: body 
+
+  }
+
+  rp(options);
+   
  }
  
  function main (){
