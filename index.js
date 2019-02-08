@@ -15,6 +15,9 @@ var rp = require('request-promise');
 
 const Eventos = new MyEmitter();
 
+
+const googleKey = require('./googleApi');
+
 app.set('port',process.env.PORT || 1337);
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
@@ -514,10 +517,6 @@ Porque queremos brindarte una asesoria personalizada :)`};
  
  function main (){
   console.log(`webhook is listening on port ${app.get('port')}`);
- 
-
-
- 
   
  }
 
