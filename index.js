@@ -577,7 +577,7 @@ Porque queremos brindarte una asesoria personalizada :)`};
             {
               "title": "Classic T-Shirt Collection",
               "subtitle": "See all our colors",
-              "image_url": "https://ybxzcgnc7b-flywheel.netdna-ssl.com/wp-content/uploads/2017/08/cool-dog-names-696x435-1-696x435.jpg",          
+              "image_url": "https://gfnc1kn6pi-flywheel.netdna-ssl.com/wp-content/uploads/2016/08/dog-shades.jpg",          
               "buttons": [
                 {
                   "title": "View",
